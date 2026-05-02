@@ -20,6 +20,14 @@ import {
   TooltipProvider,
   TooltipTrigger
 } from "@/components/ui/tooltip";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
+import { Instagram, Facebook, Youtube, MessageCircle, Send, Globe } from "lucide-react";
 import Logo from "@/components/shared/Logo";
 import { useLocale, useTranslations } from "@/i18n/compat/client";
 
@@ -30,7 +38,63 @@ interface MenuItem {
   icon: any;
   items?: { title: string; href: string }[];
   isExternal?: boolean;
+  isDeveloperModal?: boolean;
 }
+
+const DeveloperDialog = ({ open, onOpenChange }: { open: boolean, onOpenChange: (open: boolean) => void }) => {
+  return (
+    <Dialog open={open} onOpenChange={onOpenChange}>
+      <DialogContent className="sm:max-w-md">
+        <DialogHeader>
+          <DialogTitle className="text-center text-xl font-bold">المطور (Developer)</DialogTitle>
+          <DialogDescription className="text-center">
+            Hamza Amirni حمزة اعمرني
+          </DialogDescription>
+        </DialogHeader>
+        <div className="flex flex-col gap-4 py-4">
+          <div className="grid grid-cols-2 gap-3">
+            <a href="https://whatsapp.com/channel/0029ValXRoHCnA7yKopcrn1p" target="_blank" rel="noreferrer" className="flex items-center gap-2 p-3 bg-secondary/20 rounded-lg hover:bg-secondary/40 transition-colors">
+              <MessageCircle className="text-green-500" size={24} />
+              <span className="font-medium text-sm">WhatsApp Channel</span>
+            </a>
+            <a href="https://chat.whatsapp.com/DDb3fGPuZPB1flLc1BV9gJ" target="_blank" rel="noreferrer" className="flex items-center gap-2 p-3 bg-secondary/20 rounded-lg hover:bg-secondary/40 transition-colors">
+              <MessageCircle className="text-green-500" size={24} />
+              <span className="font-medium text-sm">WhatsApp Group</span>
+            </a>
+            <a href="https://instagram.com/hamza_amirni_01" target="_blank" rel="noreferrer" className="flex items-center gap-2 p-3 bg-secondary/20 rounded-lg hover:bg-secondary/40 transition-colors">
+              <Instagram className="text-pink-500" size={24} />
+              <span className="font-medium text-sm">Instagram 1</span>
+            </a>
+            <a href="https://instagram.com/hamza_amirni_02" target="_blank" rel="noreferrer" className="flex items-center gap-2 p-3 bg-secondary/20 rounded-lg hover:bg-secondary/40 transition-colors">
+              <Instagram className="text-pink-500" size={24} />
+              <span className="font-medium text-sm">Instagram 2</span>
+            </a>
+            <a href="https://www.facebook.com/6kqzuj3y4e" target="_blank" rel="noreferrer" className="flex items-center gap-2 p-3 bg-secondary/20 rounded-lg hover:bg-secondary/40 transition-colors">
+              <Facebook className="text-blue-600" size={24} />
+              <span className="font-medium text-sm">Facebook</span>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61564527797752" target="_blank" rel="noreferrer" className="flex items-center gap-2 p-3 bg-secondary/20 rounded-lg hover:bg-secondary/40 transition-colors">
+              <Facebook className="text-blue-600" size={24} />
+              <span className="font-medium text-sm">Facebook Page</span>
+            </a>
+            <a href="https://www.youtube.com/@Hamzaamirni01" target="_blank" rel="noreferrer" className="flex items-center gap-2 p-3 bg-secondary/20 rounded-lg hover:bg-secondary/40 transition-colors">
+              <Youtube className="text-red-500" size={24} />
+              <span className="font-medium text-sm">YouTube</span>
+            </a>
+            <a href="https://t.me/hamzaamirni" target="_blank" rel="noreferrer" className="flex items-center gap-2 p-3 bg-secondary/20 rounded-lg hover:bg-secondary/40 transition-colors">
+              <Send className="text-blue-400" size={24} />
+              <span className="font-medium text-sm">Telegram</span>
+            </a>
+          </div>
+          <a href="https://hamzaamirni.netlify.app" target="_blank" rel="noreferrer" className="mt-2 flex items-center justify-center gap-2 p-3 bg-primary text-primary-foreground rounded-lg hover:opacity-90 transition-opacity">
+            <Globe size={20} />
+            <span className="font-bold">Portfolio</span>
+          </a>
+        </div>
+      </DialogContent>
+    </Dialog>
+  );
+};
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   const t = useTranslations("dashboard");
@@ -57,9 +121,8 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
     },
     {
       title: "المطور (Developer)",
-      url: "https://hamzaamirni.netlify.app",
       icon: IconDeveloper,
-      isExternal: true,
+      isDeveloperModal: true,
     },
   ];
 
@@ -67,6 +130,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   const pathname = usePathname();
   const locale = useLocale();
   const [open, setOpen] = useState(true);
+  const [developerModalOpen, setDeveloperModalOpen] = useState(false);
   const [collapsible, setCollapsible] = useState<"offcanvas" | "icon" | "none">(
     "icon"
   );
@@ -74,6 +138,8 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   const handleItemClick = (item: MenuItem) => {
     if (item.items) {
 
+    } else if (item.isDeveloperModal) {
+      setDeveloperModalOpen(true);
     } else if (item.isExternal && item.url) {
       window.open(item.url, "_blank");
     } else {
@@ -82,7 +148,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   };
 
   const isItemActive = (item: MenuItem) => {
-    if (item.isExternal) return false;
+    if (item.isExternal || item.isDeveloperModal) return false;
     if (item.items) {
       return item.items.some((subItem) => pathname === subItem.href);
     }
@@ -184,8 +250,10 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
           <div className="flex-1">{children}</div>
         </main>
       </SidebarProvider>
+      <DeveloperDialog open={developerModalOpen} onOpenChange={setDeveloperModalOpen} />
     </div>
   );
 };
 
 export default DashboardLayout;
+

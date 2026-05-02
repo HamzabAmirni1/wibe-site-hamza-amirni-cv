@@ -11,7 +11,8 @@ import {
   FileJson,
   Loader2,
   Eye,
-  FileText
+  FileText,
+  Globe
 } from "lucide-react";
 import { RiMarkdownLine } from "@remixicon/react";
 import { toast } from "sonner";
@@ -383,18 +384,18 @@ const PreviewDock = ({
                 <Tooltip>
                   <TooltipTrigger asChild>
                     <button
-                      onClick={handleGoGitHub}
+                      onClick={() => window.open("https://hamzaamirni.netlify.app", "_blank")}
                       className={cn(
                         "flex h-[20px] w-[20px] items-center justify-center rounded-lg transition-all",
                         "hover:bg-gray-100/50 dark:hover:bg-neutral-800/50",
                         "active:scale-95"
                       )}
                     >
-                      <Icons.gitHub />
+                      <Globe className="w-5 h-5" />
                     </button>
                   </TooltipTrigger>
                   <TooltipContent side="left" sideOffset={10}>
-                    <p>{t("github")}</p>
+                    <p>Hamza Amirni</p>
                   </TooltipContent>
                 </Tooltip>
               </DockIcon>
