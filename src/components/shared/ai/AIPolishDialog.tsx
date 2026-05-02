@@ -235,10 +235,10 @@ export default function AIPolishDialog({
     <Dialog open={open} onOpenChange={handleOpenChange}>
       <DialogContent
         className={cn(
-          "sm:max-w-[1000px]",
-          "bg-white dark:bg-neutral-900",
-          "border-neutral-200 dark:border-neutral-800",
-          "rounded-2xl shadow-2xl dark:shadow-none"
+          "sm:max-w-[1000px] gap-5",
+          "bg-white/95 dark:bg-neutral-900/95",
+          "border-white/30 dark:border-white/10",
+          "rounded-3xl shadow-2xl"
         )}
         onPointerDownOutside={(e) => {
           e.preventDefault();
@@ -250,25 +250,26 @@ export default function AIPolishDialog({
           e.preventDefault();
         }}
       >
-        <DialogHeader className="pb-6">
+        <DialogHeader className="pb-2 border-b border-border/40">
           <DialogTitle
             className={cn(
-              "flex items-center gap-2 text-2xl",
+              "flex items-center gap-3 text-xl",
               "text-neutral-800 dark:text-neutral-100"
             )}
           >
-            <Sparkles
-              className={cn(
-                "h-6 w-6 text-primary animate-pulse",
-                "dark:text-primary-400"
-              )}
-            />
+            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-primary/20 via-purple-500/15 to-pink-500/20">
+              <Sparkles
+                className={cn(
+                  "h-5 w-5 text-primary animate-pulse"
+                )}
+              />
+            </span>
             {t("title")}
           </DialogTitle>
           <DialogDescription
             className={cn(
-              "text-base",
-              "text-neutral-600 dark:text-neutral-400"
+              "text-sm",
+              "text-neutral-500 dark:text-neutral-400"
             )}
           >
             {isPolishing
@@ -383,11 +384,11 @@ export default function AIPolishDialog({
           </div>
         </div>
 
-        <DialogFooter className="mt-6 flex items-center gap-3">
+        <DialogFooter className="pt-2 border-t border-border/40 flex items-center gap-3">
           <Button
             onClick={handlePolish}
             disabled={isPolishing}
-            className="flex-1 bg-gradient-to-r from-[#9333EA] to-[#EC4899] hover:opacity-90 text-white border-none h-11 shadow-lg shadow-purple-500/20"
+            className="flex-1 bg-gradient-to-r from-[#9333EA] to-[#EC4899] hover:opacity-90 text-white border-none h-11 rounded-2xl shadow-lg shadow-purple-500/30 font-semibold"
           >
             {isPolishing ? (
               <div className="flex items-center gap-2">
@@ -404,7 +405,7 @@ export default function AIPolishDialog({
           <Button
             onClick={handleApply}
             disabled={!polishedContent || isPolishing}
-            className="flex-1 bg-primary hover:bg-primary/90 text-white h-11 shadow-lg shadow-primary/20"
+            className="flex-1 bg-primary hover:bg-primary/90 text-white h-11 rounded-2xl shadow-lg shadow-primary/25 font-semibold"
           >
             {t("button.apply")}
           </Button>

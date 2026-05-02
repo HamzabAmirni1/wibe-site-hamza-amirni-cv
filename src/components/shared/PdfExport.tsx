@@ -206,11 +206,14 @@ const PdfExport = ({ children }: { children?: React.ReactNode }) => {
       </DialogTrigger>
 
       <DialogContent className="max-w-4xl gap-6 p-0 sm:p-8 sm:rounded-2xl border-none shadow-2xl bg-gradient-to-b from-background to-muted/20 flex flex-col h-[90vh] sm:h-auto">
-        <DialogHeader className="gap-2 p-6 pb-0 sm:p-0">
+        <DialogHeader className="gap-2 p-6 pb-4 sm:p-0 sm:pb-2 border-b border-border/40">
           <DialogTitle className="text-xl sm:text-2xl font-bold flex items-center gap-3">
+            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-primary/20 to-purple-600/20 text-primary">
+              <Download className="h-5 w-5" />
+            </span>
             {t("modal.title")}
           </DialogTitle>
-          <DialogDescription className="text-xs sm:text-sm text-muted-foreground/80 mt-1">
+          <DialogDescription className="text-xs sm:text-sm text-muted-foreground/80 mt-0.5">
             {t("modal.subtitle")}
           </DialogDescription>
         </DialogHeader>
@@ -265,13 +268,13 @@ const PdfExport = ({ children }: { children?: React.ReactNode }) => {
           </div>
         </div>
 
-        <div className="p-6 pt-0 sm:hidden">
+        <div className="p-6 pt-0 sm:hidden border-t border-border/40 mt-1">
           <Button 
             variant="outline" 
-            className="w-full rounded-xl"
+            className="w-full rounded-2xl font-medium"
             onClick={() => setIsOpen(false)}
           >
-            {tBasicField ? "إغلاق" : "Close"}
+            إغلاق
           </Button>
         </div>
       </DialogContent>

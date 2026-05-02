@@ -121,6 +121,50 @@
     0%, 100% { transform: translateY(0px); }
     50% { transform: translateY(-10px); }
   }
+
+  /* ===== PREMIUM DIALOG / MODAL ENHANCEMENTS ===== */
+  /* Smooth content pop for dialogs */
+  @keyframes dialog-pop {
+    0%   { opacity: 0; transform: translate(-50%, -48%) scale(0.95); }
+    100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  }
+
+  /* Overlay soft pulse on open */
+  @keyframes overlay-in {
+    0%   { opacity: 0; backdrop-filter: blur(0px); }
+    100% { opacity: 1; backdrop-filter: blur(12px); }
+  }
+
+  /* Highlight line shimmer for dialog panels */
+  .dialog-highlight {
+    position: relative;
+    overflow: hidden;
+  }
+  .dialog-highlight::after {
+    content: '';
+    position: absolute;
+    inset-x-0;
+    top: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.5) 50%, transparent 100%);
+    border-radius: 9999px;
+    pointer-events: none;
+  }
+
+  /* Premium scrollbar inside dialogs */
+  [data-radix-dialog-content] ::-webkit-scrollbar {
+    width: 4px;
+  }
+  [data-radix-dialog-content] ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  [data-radix-dialog-content] ::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 99px;
+  }
+  [data-radix-dialog-content] ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.5);
+  }
 }
 
 @layer base {
