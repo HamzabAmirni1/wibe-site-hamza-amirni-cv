@@ -334,8 +334,8 @@ const TemplatesPage = () => {
             }}
           >
             {activePreviewTemplate && (
-              <DialogContent className="max-w-[680px] p-0 overflow-hidden border-0 shadow-xl rounded-2xl bg-white dark:bg-gray-900">
-                <div className="flex flex-col">
+              <DialogContent className="max-w-[700px] p-0 overflow-hidden border-0 shadow-2xl rounded-3xl bg-white dark:bg-gray-900">
+                <div className="flex flex-col h-[90vh] sm:h-auto">
                   <div className="border-b border-gray-100 dark:border-gray-800 px-4 py-3 flex items-center justify-between">
                     <DialogTitle className="text-lg font-semibold">
                       {t(`${getTemplateKey(activePreviewTemplate.id)}.name`)}
@@ -348,11 +348,11 @@ const TemplatesPage = () => {
                       <X size={16} />
                     </button>
                   </div>
-                  <div className="overflow-hidden flex items-center justify-center bg-gray-50 dark:bg-gray-950 py-8 pointer-events-none">
+                  <div className="flex-1 overflow-hidden flex items-center justify-center bg-gray-100 dark:bg-gray-950/50 p-4 sm:p-8 pointer-events-none">
                     <div
-                      className="relative bg-white shadow-md ring-1 ring-gray-200/50 overflow-hidden mx-auto"
+                      className="relative bg-white shadow-2xl ring-1 ring-gray-200/50 overflow-hidden mx-auto"
                       style={{ 
-                        width: "min(420px, calc(100vw - 4rem))", 
+                        width: "min(480px, calc(100vw - 3rem))", 
                         height: "auto", 
                         aspectRatio: "210/297" 
                       }}
@@ -362,7 +362,7 @@ const TemplatesPage = () => {
                         style={{
                           width: "210mm",
                           height: "297mm",
-                          transform: `scale(calc(min(420px, calc(100vw - 4rem)) / 793.7))`,
+                          transform: `scale(calc(min(480px, calc(100vw - 3rem)) / 793.7))`,
                           transformOrigin: "top left",
                           padding: `${activePreviewTemplate.spacing.contentPadding}px`,
                           fontFamily: normalizeFontFamily(
