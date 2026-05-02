@@ -1,8 +1,8 @@
 {
   "common": {
-    "title": "Magic Resume",
+    "title": "Hamza Amirni CV",
     "subtitle": "محرر سيرة ذاتية مدعوم بالذكاء الاصطناعي",
-    "description": "Magic Resume هو محرر سيرة ذاتية مفتوح المصدر، مجاني، ويحترم الخصوصية. لا يلزم التسجيل، يتم تخزين جميع البيانات محلياً، ويدعم النسخ الاحتياطي وتصدير البيانات، مما يضمن توفر بيانات سيرتك الذاتية دائماً.",
+    "description": "Hamza Amirni CV هو محرر سيرة ذاتية مفتوح المصدر، مجاني، ويحترم الخصوصية...",
     "dashboard": "لوحة التحكم",
     "edit": "تعديل",
     "delete": "حذف",
@@ -153,6 +153,532 @@
       "markdownError": "فشل تصدير Markdown",
       "wordSuccess": "تم تصدير مستند Word بنجاح",
       "wordError": "فشل تصدير Word"
+    }
+  },
+  "previewDock": {
+    "switchTemplate": "تبديل القالب",
+    "grammarCheck": {
+      "idle": "فحص القواعد بالذكاء الاصطناعي",
+      "checking": "جاري الفحص...",
+      "configurePrompt": "يرجى تكوين نموذج الذكاء الاصطناعي",
+      "configureButton": "تكوين",
+      "errorToast": "فشل فحص القواعد، يرجى المحاولة مرة أخرى"
+    },
+    "sidePanel": {
+      "expand": "توسيع اللوحة الجانبية",
+      "collapse": "طوي اللوحة الجانبية"
+    },
+    "editPanel": {
+      "expand": "توسيع لوحة التحرير",
+      "collapse": "طوي لوحة التحرير"
+    },
+    "previewPanel": {
+      "expand": "توسيع لوحة المعاينة",
+      "collapse": "طوي لوحة المعاينة"
+    },
+    "github": "جيت هاب",
+    "backToDashboard": "العودة إلى لوحة التحكم",
+    "copyResume": {
+      "tooltip": "نسخ السيرة الذاتية",
+      "success": "تم نسخ السيرة الذاتية بنجاح",
+      "error": "فشل نسخ السيرة الذاتية"
+    },
+    "export": {
+      "tooltip": "تصدير السيرة الذاتية",
+      "pdf": "تصدير PDF",
+      "json": "تصدير JSON",
+      "markdown": "تصدير Markdown",
+      "print": "طباعة"
+    },
+    "autoOnePage": {
+      "tooltip": "ملاءمة تلقائية لصفحة واحدة",
+      "enabled": "وضع الصفحة الواحدة مفعل",
+      "disabled": "وضع الصفحة الواحدة معطل",
+      "cannotFit": "محتوى كبير جداً. تم التحسين قدر الإمكان ولكن لا يمكن الملاءمة في صفحة واحدة. حاول تبسيط المحتوى أو تعديل الهوامش وحجم الخط."
+    },
+    "backup": {
+      "configured": "النسخ الاحتياطي مكون",
+      "notConfigured": "النسخ الاحتياطي غير مكون",
+      "clickToConfigure": "انقر للتكوين"
+    }
+  },
+  "workbench": {
+    "sidePanel": {
+      "layout": {
+        "title": "التنسيق",
+        "addCustomSection": "إضافة وحدة",
+        "addCustomSectionOption": "إضافة قسم مخصص",
+        "standardSections": {
+          "skills": "المهارات",
+          "experience": "الخبرة",
+          "projects": "المشاريع",
+          "education": "التعليم",
+          "selfEvaluation": "التقييم الذاتي",
+          "certificates": "الشهادات"
+        }
+      },
+      "theme": {
+        "title": "لون المظهر",
+        "custom": "مخصص"
+      },
+      "typography": {
+        "title": "الخطوط",
+        "font": {
+          "title": "الخط",
+          "alibaba": "علي بابا بوهويتي",
+          "misans": "MiSans",
+          "notosanssc": "نوتو سانس SC",
+          "sourcehanserifsc": "سورس هان سيريف SC",
+          "note": "يتم استخدام MiSans بموجب ترخيصها التجاري المجاني."
+        },
+        "lineHeight": {
+          "title": "تباعد الأسطر",
+          "normal": "افتراضي",
+          "relaxed": "مريح",
+          "loose": "واسع"
+        },
+        "baseFontSize": {
+          "title": "حجم الخط الأساسي"
+        },
+        "headerSize": {
+          "title": "حجم رأس القسم"
+        },
+        "subheaderSize": {
+          "title": "حجم الرأس الفرعي"
+        }
+      },
+      "spacing": {
+        "title": "التباعد",
+        "pagePadding": {
+          "title": "هوامش الصفحة"
+        },
+        "sectionSpacing": {
+          "title": "تباعد الأقسام"
+        },
+        "paragraphSpacing": {
+          "title": "تباعد الفقرات"
+        }
+      },
+      "mode": {
+        "title": "الوضع",
+        "useIconMode": {
+          "title": "وضع الأيقونات"
+        },
+        "centerSubtitle": {
+          "title": "توسيط العنوان الفرعي"
+        },
+        "flexibleHeaderLayout": {
+          "title": "عنوان طويل"
+        }
+      }
+    },
+    "basicPanel": {
+      "title": "الملف الشخصي",
+      "avatar": "الصورة الشخصية",
+      "basicField": "أساسي",
+      "customField": "مخصص",
+      "layout": "محاذاة",
+      "customFields": {
+        "placeholders": {
+          "label": "التسمية",
+          "value": "القيمة"
+        },
+        "displayLabel": "إظهار التسمية",
+        "addButton": "إضافة حقل مخصص"
+      },
+      "basicFields": {
+        "name": "الاسم",
+        "title": "المسمى الوظيفي",
+        "email": "البريد الإلكتروني",
+        "phone": "الهاتف",
+        "website": "الموقع الإلكتروني",
+        "location": "الموقع",
+        "birthDate": "تاريخ الميلاد",
+        "employementStatus": "حالة التوظيف"
+      },
+      "fieldVisibility": {
+        "show": "إظهار",
+        "hide": "إخفاء"
+      },
+      "githubContributions": "مساهمات جيت هاب"
+    },
+    "experiencePanel": {
+      "title": "الخبرة العملية",
+      "addButton": "إضافة خبرة عملية",
+      "defaultProject": {
+        "company": "شركة تقنية المحدودة",
+        "position": "مهندس واجهات أمامية أول",
+        "date": "2020-الآن",
+        "details": "مسؤول عن تطوير المنتجات الأساسية..."
+      },
+      "placeholders": {
+        "company": "اسم الشركة",
+        "position": "المسمى الوظيفي",
+        "date": "فترة العمل",
+        "details": "المسؤوليات والإنجازات الوظيفية"
+      }
+    },
+    "experienceItem": {
+      "labels": {
+        "company": "اسم الشركة",
+        "position": "المنصب",
+        "date": "فترة العمل",
+        "details": "المسؤوليات الوظيفية"
+      },
+      "placeholders": {
+        "company": "أدخل اسم الشركة",
+        "position": "مثلاً: مهندس واجهات أمامية",
+        "date": "مثلاً: 2020-الآن",
+        "details": "صف مسؤولياتك وإنجازاتك في هذا الدور"
+      },
+      "buttons": {
+        "edit": "تعديل",
+        "save": "حفظ",
+        "cancel": "إلغاء",
+        "delete": "حذف"
+      },
+      "visibility": {
+        "show": "إظهار",
+        "hide": "إخفاء"
+      }
+    },
+    "projectPanel": {
+      "title": "خبرة المشاريع",
+      "addButton": "إضافة مشروع",
+      "defaultProject": {
+        "name": "مشروع شخصي",
+        "description": "وصف المشروع",
+        "role": "المسؤوليات",
+        "date": "2023.01 - 2023.06"
+      },
+      "placeholders": {
+        "name": "اسم المشروع",
+        "description": "صف باختصار خلفية المشروع وأهدافه",
+        "role": "دورك ومسؤولياتك في المشروع",
+        "date": "النطاق الزمني للمشروع",
+        "link": "رابط المشروع"
+      }
+    },
+    "projectItem": {
+      "labels": {
+        "name": "اسم المشروع",
+        "role": "الدور في المشروع",
+        "date": "فترة المشروع",
+        "description": "وصف المشروع",
+        "technologies": "التقنيات المستخدمة",
+        "link": "رابط المشروع",
+        "linkLabel": "نص العرض"
+      },
+      "placeholders": {
+        "name": "أدخل اسم المشروع",
+        "role": "دورك في المشروع",
+        "date": "النطاق الزمني للمشروع",
+        "description": "صف باختصار خلفية المشروع وأهدافه",
+        "technologies": "التقنيات والأدوات المستخدمة",
+        "link": "رابط المشروع",
+        "linkLabel": "نص العرض"
+      },
+      "hints": {
+        "linkLabel": "إذا كان نص العرض فارغاً، سيظهر النطاق أو الرابط الكامل تلقائياً."
+      },
+      "buttons": {
+        "edit": "تعديل",
+        "save": "حفظ",
+        "cancel": "إلغاء",
+        "delete": "حذف"
+      },
+      "visibility": {
+        "show": "إظهار",
+        "hide": "إخفاء"
+      }
+    },
+    "educationPanel": {
+      "title": "التعليم",
+      "addButton": "إضافة تعليم",
+      "defaultProject": {
+        "school": "اسم المدرسة/الجامعة",
+        "degree": "الدرجة العلمية",
+        "major": "التخصص",
+        "date": "2020.09 - 2024.06"
+      },
+      "placeholders": {
+        "school": "أدخل اسم المدرسة",
+        "degree": "اختر الدرجة العلمية",
+        "major": "أدخل التخصص",
+        "date": "أدخل فترة الدراسة"
+      }
+    },
+    "educationItem": {
+      "labels": {
+        "school": "اسم المدرسة",
+        "degree": "الدرجة العلمية",
+        "major": "التخصص",
+        "date": "فترة الدراسة",
+        "description": "الوصف",
+        "gpa": "المعدل التراكمي",
+        "location": "الموقع",
+        "startDate": "تاريخ البدء",
+        "endDate": "تاريخ الانتهاء"
+      },
+      "placeholders": {
+        "school": "أدخل اسم المدرسة",
+        "degree": "اختر الدرجة العلمية",
+        "major": "أدخل التخصص",
+        "date": "أدخل النطاق الزمني للدراسة",
+        "description": "أدخل وصف المدرسة",
+        "gpa": "أدخل المعدل التراكمي",
+        "location": "أدخل الموقع"
+      },
+      "buttons": {
+        "edit": "تعديل",
+        "save": "حفظ",
+        "cancel": "إلغاء",
+        "delete": "حذف"
+      },
+      "visibility": {
+        "show": "إظهار",
+        "hide": "إخفاء"
+      }
+    },
+    "certificatesPanel": {
+      "title": "الشهادات",
+      "addButton": "إضافة شهادة",
+      "tips": "قم برفع أو لصق الصور مباشرة. اضبط نسبة العرض للتنسيق الأفقي.",
+      "width": "العرض (%)",
+      "delete": "حذف",
+      "empty": "لا توجد صور بعد. يرجى رفع أو لصق الصور."
+    }
+  },
+  "field": {
+    "selectDate": "اختر التاريخ",
+    "enterYear": "أدخل السنة",
+    "toPresent": "إلى الآن"
+  },
+  "richEditor": {
+    "bold": "عريض",
+    "italic": "مائل",
+    "underline": "تحته خط",
+    "link": "رابط",
+    "linkPlaceholder": "أدخل رابطاً، مثلاً https://example.com",
+    "linkApply": "تطبيق",
+    "linkRemove": "إزالة",
+    "linkInvalid": "يرجى إدخال رابط صحيح",
+    "textColor": "لون النص",
+    "backgroundColor": "لون الخلفية",
+    "alignLeft": "محاذاة لليسار",
+    "alignCenter": "توسيط",
+    "alignRight": "محاذاة لليمين",
+    "alignJustify": "ضبط",
+    "bulletList": "قائمة نقطية",
+    "orderedList": "قائمة مرقمة",
+    "undo": "تراجع",
+    "redo": "إعادة",
+    "aiPolish": "تحسين بالذكاء الاصطناعي",
+    "paragraph": "فقرة",
+    "heading1": "عنوان 1",
+    "heading2": "عنوان 2",
+    "heading3": "عنوان 3",
+    "colors": {
+      "black": "أسود",
+      "darkGray": "رمادي داكن",
+      "gray": "رمادي",
+      "red": "أحمر",
+      "orange": "برتقالي",
+      "orangeYellow": "أصفر برتقالي",
+      "yellow": "أصفر",
+      "yellowGreen": "أخضر مصفر",
+      "green": "أخضر",
+      "cyan": "سماوي",
+      "lightBlue": "أزرق فاتح",
+      "blue": "أزرق",
+      "purple": "بنفسجي",
+      "magenta": "أرجواني",
+      "pink": "وردي"
+    }
+  },
+  "iconSelector": {
+    "all": "الكل",
+    "searchPlaceholder": "بحث عن أيقونات...",
+    "noMatchingIcons": "لم يتم العثور على أيقونات مطابقة",
+    "tryOtherKeywords": "يرجى تجربة كلمات بحث أخرى",
+    "selectOtherCategory": "يرجى اختيار فئة أخرى",
+    "categories": {
+      "personal": "المعلومات الشخصية",
+      "education": "التعليم",
+      "experience": "الخبرة العملية",
+      "skills": "المهارات",
+      "languages": "اللغات",
+      "projects": "المشاريع",
+      "achievements": "الإنجازات",
+      "hobbies": "الهوايات",
+      "social": "وسائل التواصل الاجتماعي",
+      "others": "أخرى"
+    },
+    "icons": {
+      "user": "مستخدم",
+      "email": "بريد إلكتروني",
+      "phone": "هاتف",
+      "address": "عنوان",
+      "website": "موقع إلكتروني",
+      "mobile": "جوال",
+      "education": "تعليم",
+      "school": "مدرسة",
+      "major": "تخصص",
+      "library": "مكتبة",
+      "scholarship": "منحة دراسية",
+      "work": "عمل",
+      "company": "شركة",
+      "office": "مكتب",
+      "dateRange": "نطاق زمني",
+      "workTime": "وقت العمل",
+      "programming": "برمجة",
+      "system": "نظام",
+      "database": "قاعدة بيانات",
+      "terminal": "تيرمينال",
+      "techStack": "تقنيات",
+      "language": "لغة",
+      "speaking": "تحدث",
+      "communication": "تواصل",
+      "project": "مشروع",
+      "branch": "فرع",
+      "release": "إصدار",
+      "target": "هدف",
+      "trophy": "كأس",
+      "medal": "ميدالية",
+      "star": "نجمة",
+      "interest": "اهتمام",
+      "music": "موسيقى",
+      "art": "فن",
+      "photography": "تصوير",
+      "linkedin": "لينكد إن",
+      "twitter": "تويتر",
+      "facebook": "فيسبوك",
+      "instagram": "إنستغرام",
+      "profile": "ملف شخصي",
+      "review": "مراجعة",
+      "filter": "تصفية",
+      "link": "رابط",
+      "salary": "راتب",
+      "idea": "فكرة",
+      "send": "إرسال",
+      "share": "مشاركة",
+      "settings": "إعدادات",
+      "search": "بحث",
+      "flag": "علم",
+      "bookmark": "إشارة مرجعية",
+      "thumbsUp": "أعجبني",
+      "skill": "مهارة"
+    }
+  },
+  "aiPolishDialog": {
+    "title": "تحسين بالذكاء الاصطناعي",
+    "description": {
+      "ready": "أضف تعليمات اختيارية، ثم انقر على \"بدء التحسين\"",
+      "polishing": "جاري تحسين المحتوى الخاص بك...",
+      "finished": "تم تحسين المحتوى، يرجى التحقق من النتيجة"
+    },
+    "error": {
+      "configRequired": "يرجى تكوين نموذج الذكاء الاصطناعي أولاً",
+      "polishFailed": "فشل التحسين",
+      "applied": "تم تطبيق المحتوى المحسن"
+    },
+    "content": {
+      "original": "المحتوى الأصلي",
+      "polished": "المحتوى المحسن"
+    },
+    "customInstructions": "تعليمات مخصصة",
+    "customInstructionsPlaceholder": "مثلاً: استخدم مصطلحات تقنية أكثر، ركز على الأرقام، اجعل الأسلوب رسمياً... (اختياري)",
+    "button": {
+      "start": "بدء التحسين",
+      "regenerate": "إعادة توليد",
+      "generating": "جاري التوليد...",
+      "apply": "تطبيق المحتوى"
+    }
+  },
+  "photoConfig": {
+    "title": "إعدادات الصورة",
+    "description": "تخصيص صورة السيرة الذاتية",
+    "upload": {
+      "title": "رابط أونلاين",
+      "dragHint": "اسحب وأفلت أو انقر لرفع صورة",
+      "sizeLimit": "حجم الصورة يجب ألا يتجاوز 2 ميجابايت",
+      "typeLimit": "يرجى رفع ملف صورة",
+      "urlPlaceholder": "أدخل رابط الصورة",
+      "invalidUrl": "رابط الصورة غير صالح أو لا يمكن الوصول إليه",
+      "timeout": "انتهت مهلة التحميل",
+      "loadError": "فشل تحميل الصورة"
+    },
+    "config": {
+      "aspectRatio": "نسبة العرض إلى الارتفاع",
+      "size": "الحجم",
+      "width": "العرض",
+      "height": "الارتفاع",
+      "border-radius": "نصف قطر الحدود",
+      "widthPlaceholder": "العرض",
+      "heightPlaceholder": "الارتفاع",
+      "ratios": {
+        "1:1": "1:1 مربع",
+        "4:3": "4:3 أفقي",
+        "3:4": "3:4 عمودي",
+        "16:9": "16:9 عريض",
+        "custom": "مخصص"
+      },
+      "borderRadius": {
+        "none": "بلا",
+        "medium": "متوسط",
+        "full": "دائري",
+        "custom": "مخصص",
+        "customPlaceholder": "نصف قطر مخصص"
+      }
+    },
+    "actions": {
+      "reset": "إعادة ضبط",
+      "close": "إغلاق",
+      "cancel": "إلغاء",
+      "removePhoto": "إزالة الصورة"
+    }
+  },
+  "templates": {
+    "switchTemplate": "تبديل القالب"
+  },
+  "themeModal": {
+    "delete": {
+      "title": "تأكيد الحذف",
+      "description": "هل أنت متأكد أنك تريد حذف {title}؟",
+      "confirmText": "حذف",
+      "cancelText": "إلغاء"
+    }
+  },
+  "grammarCheck": {
+    "title": "فحص القواعد بالذكاء الاصطناعي",
+    "description": "تم العثور على {count} اقتراح",
+    "exit": "خروج",
+    "spelling": "إملاء",
+    "punctuation": "علامات الترقيم",
+    "original": "الأصلي",
+    "error_point": "خطأ",
+    "suggestion": "اقتراح",
+    "reason": "السبب",
+    "accept": "تطبيق",
+    "ignore": "تجاهل",
+    "found_issues": "تم العثور على {count} مشكلة",
+    "applied_success": "تم تطبيق التغييرات",
+    "apply_error": "النص غير موجود، لا يمكن التطبيق تلقائياً",
+    "no_errors_title": "ممتاز!",
+    "no_errors_desc": "لم يتم العثور على أخطاء في القواعد أو علامات الترقيم."
+  },
+  "faqDialog": {
+    "title": "الأسئلة الشائعة",
+    "description": "نصائح وحلول شائعة لمحرر السيرة الذاتية.",
+    "items": {
+      "browser-compatibility": {
+        "question": "ما هو المتصفح الموصى به؟",
+        "answer": "نوصي باستخدام أحدث إصدار من Chrome أو Edge للحصول على أفضل تجربة تنسيق وتصدير."
+      },
+      "export-failure": {
+        "question": "ماذا لو فشل التصدير أو كان التنسيق تالفاً؟",
+        "answer": "1. نوصي باستخدام Google Chrome.\n2. حاول في 'وضع التصفح الخفي'.\n3. بدلاً من ذلك، انقر على 'طباعة المتصفح' واختر 'حفظ كـ PDF'."
+      }
     }
   }
 }

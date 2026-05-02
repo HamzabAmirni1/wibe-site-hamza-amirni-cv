@@ -1,8 +1,8 @@
 {
   "common": {
-    "title": "Magic Resume",
+    "title": "Hamza Amirni CV",
     "subtitle": "Éditeur de CV piloté par l'IA",
-    "description": "Magic Resume est un éditeur de CV open source, gratuit et respectueux de la vie privée. Aucune inscription requise, toutes les données sont stockées localement, prise en charge de la sauvegarde et de l'exportation des données, garantissant que vos données de CV sont toujours disponibles.",
+    "description": "Hamza Amirni CV est un éditeur de CV open source, gratuit et respectueux de la vie privée...",
     "dashboard": "Tableau de bord",
     "edit": "Modifier",
     "delete": "Supprimer",
@@ -149,6 +149,532 @@
       "markdownError": "Échec de l'exportation Markdown",
       "wordSuccess": "Document Word exporté avec succès",
       "wordError": "Échec de l'exportation Word"
+    }
+  },
+  "previewDock": {
+    "switchTemplate": "Changer de modèle",
+    "grammarCheck": {
+      "idle": "Vérification grammaticale par IA",
+      "checking": "Vérification en cours...",
+      "configurePrompt": "Veuillez configurer le modèle d'IA",
+      "configureButton": "Configurer",
+      "errorToast": "Échec de la vérification, veuillez réessayer"
+    },
+    "sidePanel": {
+      "expand": "Développer le panneau latéral",
+      "collapse": "Réduire le panneau latéral"
+    },
+    "editPanel": {
+      "expand": "Développer le panneau d'édition",
+      "collapse": "Réduire le panneau d'édition"
+    },
+    "previewPanel": {
+      "expand": "Développer le panneau d'aperçu",
+      "collapse": "Réduire le panneau d'aperçu"
+    },
+    "github": "GitHub",
+    "backToDashboard": "Retour au tableau de bord",
+    "copyResume": {
+      "tooltip": "Copier le CV",
+      "success": "CV copié avec succès",
+      "error": "Échec de la copie du CV"
+    },
+    "export": {
+      "tooltip": "Exporter le CV",
+      "pdf": "Exporter en PDF",
+      "json": "Exporter en JSON",
+      "markdown": "Exporter en Markdown",
+      "print": "Imprimer"
+    },
+    "autoOnePage": {
+      "tooltip": "Ajustement automatique sur une page",
+      "enabled": "Mode une page activé",
+      "disabled": "Mode une page désactivé",
+      "cannotFit": "Trop de contenu. Optimisé autant que possible mais ne peut pas tenir sur une page. Essayez de simplifier le contenu ou d'ajuster les marges et la taille de la police."
+    },
+    "backup": {
+      "configured": "Sauvegarde configurée",
+      "notConfigured": "Sauvegarde non configurée",
+      "clickToConfigure": "Cliquez pour configurer"
+    }
+  },
+  "workbench": {
+    "sidePanel": {
+      "layout": {
+        "title": "Mise en page",
+        "addCustomSection": "Ajouter un module",
+        "addCustomSectionOption": "Ajouter une section personnalisée",
+        "standardSections": {
+          "skills": "Compétences",
+          "experience": "Expérience",
+          "projects": "Projets",
+          "education": "Éducation",
+          "selfEvaluation": "Auto-évaluation",
+          "certificates": "Certificats"
+        }
+      },
+      "theme": {
+        "title": "Couleur du thème",
+        "custom": "Personnalisé"
+      },
+      "typography": {
+        "title": "Typographie",
+        "font": {
+          "title": "Police",
+          "alibaba": "Alibaba PuHuiTi",
+          "misans": "MiSans",
+          "notosanssc": "Noto Sans SC",
+          "sourcehanserifsc": "Source Han Serif SC",
+          "note": "MiSans est utilisé sous sa licence commerciale gratuite."
+        },
+        "lineHeight": {
+          "title": "Hauteur de ligne",
+          "normal": "Par défaut",
+          "relaxed": "Relaxé",
+          "loose": "Ample"
+        },
+        "baseFontSize": {
+          "title": "Taille de police de base"
+        },
+        "headerSize": {
+          "title": "Taille de l'en-tête de section"
+        },
+        "subheaderSize": {
+          "title": "Taille du sous-en-tête"
+        }
+      },
+      "spacing": {
+        "title": "Espacement",
+        "pagePadding": {
+          "title": "Marge de la page"
+        },
+        "sectionSpacing": {
+          "title": "Espacement des sections"
+        },
+        "paragraphSpacing": {
+          "title": "Espacement des paragraphes"
+        }
+      },
+      "mode": {
+        "title": "Mode",
+        "useIconMode": {
+          "title": "Mode icône"
+        },
+        "centerSubtitle": {
+          "title": "Centrer le sous-titre"
+        },
+        "flexibleHeaderLayout": {
+          "title": "Titre long"
+        }
+      }
+    },
+    "basicPanel": {
+      "title": "Profil",
+      "avatar": "Avatar",
+      "basicField": "Basique",
+      "customField": "Personnalisé",
+      "layout": "Alignement",
+      "customFields": {
+        "placeholders": {
+          "label": "Libellé",
+          "value": "Valeur"
+        },
+        "displayLabel": "Afficher le libellé",
+        "addButton": "Ajouter un champ personnalisé"
+      },
+      "basicFields": {
+        "name": "Nom",
+        "title": "Titre",
+        "email": "Email",
+        "phone": "Téléphone",
+        "website": "Site web",
+        "location": "Localisation",
+        "birthDate": "Date de naissance",
+        "employementStatus": "Statut d'emploi"
+      },
+      "fieldVisibility": {
+        "show": "Afficher",
+        "hide": "Masquer"
+      },
+      "githubContributions": "Contributions GitHub"
+    },
+    "experiencePanel": {
+      "title": "Expérience professionnelle",
+      "addButton": "Ajouter une expérience",
+      "defaultProject": {
+        "company": "Entreprise Tech Ltd.",
+        "position": "Ingénieur Frontend Senior",
+        "date": "2020-Présent",
+        "details": "Responsable du développement des produits de base..."
+      },
+      "placeholders": {
+        "company": "Nom de l'entreprise",
+        "position": "Intitulé du poste",
+        "date": "Période d'emploi",
+        "details": "Responsabilités et réalisations"
+      }
+    },
+    "experienceItem": {
+      "labels": {
+        "company": "Nom de l'entreprise",
+        "position": "Poste",
+        "date": "Période d'emploi",
+        "details": "Responsabilités"
+      },
+      "placeholders": {
+        "company": "Entrez le nom de l'entreprise",
+        "position": "ex: Ingénieur Frontend",
+        "date": "ex: 2020-Présent",
+        "details": "Décrivez vos responsabilités et réalisations"
+      },
+      "buttons": {
+        "edit": "Modifier",
+        "save": "Enregistrer",
+        "cancel": "Annuler",
+        "delete": "Supprimer"
+      },
+      "visibility": {
+        "show": "Afficher",
+        "hide": "Masquer"
+      }
+    },
+    "projectPanel": {
+      "title": "Expérience de projet",
+      "addButton": "Ajouter un projet",
+      "defaultProject": {
+        "name": "Projet personnel",
+        "description": "Description du projet",
+        "role": "Responsabilités",
+        "date": "2023.01 - 2023.06"
+      },
+      "placeholders": {
+        "name": "Nom du projet",
+        "description": "Décrivez brièvement le contexte et les objectifs du projet",
+        "role": "Votre rôle et vos responsabilités",
+        "date": "Période du projet",
+        "link": "Lien du projet"
+      }
+    },
+    "projectItem": {
+      "labels": {
+        "name": "Nom du projet",
+        "role": "Rôle dans le projet",
+        "date": "Période du projet",
+        "description": "Description du projet",
+        "technologies": "Stack technique",
+        "link": "Lien du projet",
+        "linkLabel": "Texte d'affichage"
+      },
+      "placeholders": {
+        "name": "Entrez le nom du projet",
+        "role": "Votre rôle dans le projet",
+        "date": "Période du projet",
+        "description": "Décrivez brièvement le projet",
+        "technologies": "Technologies et outils utilisés",
+        "link": "Lien du projet",
+        "linkLabel": "Texte d'affichage"
+      },
+      "hints": {
+        "linkLabel": "Si le texte d'affichage est vide, l'URL sera affichée automatiquement."
+      },
+      "buttons": {
+        "edit": "Modifier",
+        "save": "Enregistrer",
+        "cancel": "Annuler",
+        "delete": "Supprimer"
+      },
+      "visibility": {
+        "show": "Afficher",
+        "hide": "Masquer"
+      }
+    },
+    "educationPanel": {
+      "title": "Éducation",
+      "addButton": "Ajouter une éducation",
+      "defaultProject": {
+        "school": "Nom de l'école",
+        "degree": "Diplôme",
+        "major": "Spécialité",
+        "date": "2020.09 - 2024.06"
+      },
+      "placeholders": {
+        "school": "Entrez le nom de l'école",
+        "degree": "Sélectionnez le diplôme",
+        "major": "Entrez la spécialité",
+        "date": "Entrez la période d'études"
+      }
+    },
+    "educationItem": {
+      "labels": {
+        "school": "Nom de l'école",
+        "degree": "Diplôme",
+        "major": "Spécialité",
+        "date": "Période d'études",
+        "description": "Description",
+        "gpa": "Moyenne (GPA)",
+        "location": "Localisation",
+        "startDate": "Date de début",
+        "endDate": "Date de fin"
+      },
+      "placeholders": {
+        "school": "Entrez le nom de l'école",
+        "degree": "Sélectionnez le diplôme",
+        "major": "Entrez la spécialité",
+        "date": "Entrez la période d'études",
+        "description": "Entrez la description",
+        "gpa": "Entrez la moyenne",
+        "location": "Entrez la localisation"
+      },
+      "buttons": {
+        "edit": "Modifier",
+        "save": "Enregistrer",
+        "cancel": "Annuler",
+        "delete": "Supprimer"
+      },
+      "visibility": {
+        "show": "Afficher",
+        "hide": "Masquer"
+      }
+    },
+    "certificatesPanel": {
+      "title": "Certificats",
+      "addButton": "Ajouter un certificat",
+      "tips": "Téléchargez ou collez des images directement.",
+      "width": "Largeur (%)",
+      "delete": "Supprimer",
+      "empty": "Pas encore d'images."
+    }
+  },
+  "field": {
+    "selectDate": "Choisir une date",
+    "enterYear": "Entrer l'année",
+    "toPresent": "À aujourd'hui"
+  },
+  "richEditor": {
+    "bold": "Gras",
+    "italic": "Italique",
+    "underline": "Souligné",
+    "link": "Lien",
+    "linkPlaceholder": "Entrez une URL, par exemple https://example.com",
+    "linkApply": "Appliquer",
+    "linkRemove": "Supprimer",
+    "linkInvalid": "Veuillez entrer une URL valide",
+    "textColor": "Couleur du texte",
+    "backgroundColor": "Couleur de fond",
+    "alignLeft": "Aligner à gauche",
+    "alignCenter": "Centrer",
+    "alignRight": "Aligner à droite",
+    "alignJustify": "Justifier",
+    "bulletList": "Liste à puces",
+    "orderedList": "Liste ordonnée",
+    "undo": "Annuler",
+    "redo": "Rétablir",
+    "aiPolish": "Amélioration IA",
+    "paragraph": "Paragraphe",
+    "heading1": "Titre 1",
+    "heading2": "Titre 2",
+    "heading3": "Titre 3",
+    "colors": {
+      "black": "Noir",
+      "darkGray": "Gris foncé",
+      "gray": "Gris",
+      "red": "Rouge",
+      "orange": "Orange",
+      "orangeYellow": "Jaune orangé",
+      "yellow": "Jaune",
+      "yellowGreen": "Vert jaune",
+      "green": "Vert",
+      "cyan": "Cyan",
+      "lightBlue": "Bleu clair",
+      "blue": "Bleu",
+      "purple": "Violet",
+      "magenta": "Magenta",
+      "pink": "Rose"
+    }
+  },
+  "iconSelector": {
+    "all": "Tous",
+    "searchPlaceholder": "Rechercher des icônes...",
+    "noMatchingIcons": "Aucune icône correspondante trouvée",
+    "tryOtherKeywords": "Veuillez essayer d'autres mots-clés",
+    "selectOtherCategory": "Veuillez sélectionner une autre catégorie",
+    "categories": {
+      "personal": "Infos personnelles",
+      "education": "Éducation",
+      "experience": "Expérience pro",
+      "skills": "Compétences",
+      "languages": "Langues",
+      "projects": "Projets",
+      "achievements": "Réalisations",
+      "hobbies": "Loisirs",
+      "social": "Réseaux sociaux",
+      "others": "Autres"
+    },
+    "icons": {
+      "user": "Utilisateur",
+      "email": "Email",
+      "phone": "Téléphone",
+      "address": "Adresse",
+      "website": "Site web",
+      "mobile": "Mobile",
+      "education": "Éducation",
+      "school": "École",
+      "major": "Spécialité",
+      "library": "Bibliothèque",
+      "scholarship": "Bourse",
+      "work": "Travail",
+      "company": "Entreprise",
+      "office": "Bureau",
+      "dateRange": "Période",
+      "workTime": "Temps de travail",
+      "programming": "Programmation",
+      "system": "Système",
+      "database": "Base de données",
+      "terminal": "Terminal",
+      "techStack": "Stack technique",
+      "language": "Langue",
+      "speaking": "Parler",
+      "communication": "Communication",
+      "project": "Projet",
+      "branch": "Branche",
+      "release": "Sortie",
+      "target": "Cible",
+      "trophy": "Trophée",
+      "medal": "Médaille",
+      "star": "Étoile",
+      "interest": "Intérêt",
+      "music": "Musique",
+      "art": "Art",
+      "photography": "Photographie",
+      "linkedin": "LinkedIn",
+      "twitter": "Twitter",
+      "facebook": "Facebook",
+      "instagram": "Instagram",
+      "profile": "Profil",
+      "review": "Révision",
+      "filter": "Filtre",
+      "link": "Lien",
+      "salary": "Salaire",
+      "idea": "Idée",
+      "send": "Envoyer",
+      "share": "Partager",
+      "settings": "Paramètres",
+      "search": "Rechercher",
+      "flag": "Drapeau",
+      "bookmark": "Signet",
+      "thumbsUp": "J'aime",
+      "skill": "Compétence"
+    }
+  },
+  "aiPolishDialog": {
+    "title": "Amélioration IA",
+    "description": {
+      "ready": "Ajoutez des instructions facultatives, puis cliquez sur \"Démarrer\"",
+      "polishing": "Amélioration de votre contenu en cours...",
+      "finished": "Le contenu a été optimisé, veuillez vérifier le résultat"
+    },
+    "error": {
+      "configRequired": "Veuillez d'abord configurer le modèle d'IA",
+      "polishFailed": "Échec de l'amélioration",
+      "applied": "Contenu amélioré appliqué"
+    },
+    "content": {
+      "original": "Contenu original",
+      "polished": "Contenu amélioré"
+    },
+    "customInstructions": "Instructions personnalisées",
+    "customInstructionsPlaceholder": "ex: Utilisez des termes plus techniques, soulignez les métriques, gardez un ton formel… (optionnel)",
+    "button": {
+      "start": "Démarrer l'amélioration",
+      "regenerate": "Régénérer",
+      "generating": "Génération...",
+      "apply": "Appliquer le contenu"
+    }
+  },
+  "photoConfig": {
+    "title": "Paramètres photo",
+    "description": "Personnalisez votre photo de CV",
+    "upload": {
+      "title": "Lien en ligne",
+      "dragHint": "Glissez-déposez ou cliquez pour télécharger",
+      "sizeLimit": "L'image ne doit pas dépasser 2 Mo",
+      "typeLimit": "Veuillez télécharger un fichier image",
+      "urlPlaceholder": "Entrez le lien de l'image",
+      "invalidUrl": "URL de l'image invalide ou inaccessible",
+      "timeout": "Délai d'attente dépassé",
+      "loadError": "Échec du chargement de l'image"
+    },
+    "config": {
+      "aspectRatio": "Ratio d'aspect",
+      "size": "Taille",
+      "width": "Largeur",
+      "height": "Hauteur",
+      "border-radius": "Rayon de bordure",
+      "widthPlaceholder": "Largeur",
+      "heightPlaceholder": "Hauteur",
+      "ratios": {
+        "1:1": "1:1 Carré",
+        "4:3": "4:3 Paysage",
+        "3:4": "3:4 Portrait",
+        "16:9": "16:9 Large",
+        "custom": "Personnalisé"
+      },
+      "borderRadius": {
+        "none": "Aucun",
+        "medium": "Moyen",
+        "full": "Cercle",
+        "custom": "Personnalisé",
+        "customPlaceholder": "Rayon personnalisé"
+      }
+    },
+    "actions": {
+      "reset": "Réinitialiser",
+      "close": "Fermer",
+      "cancel": "Annuler",
+      "removePhoto": "Supprimer la photo"
+    }
+  },
+  "templates": {
+    "switchTemplate": "Changer de modèle"
+  },
+  "themeModal": {
+    "delete": {
+      "title": "Confirmer la suppression",
+      "description": "Êtes-vous sûr de vouloir supprimer {title} ?",
+      "confirmText": "Supprimer",
+      "cancelText": "Annuler"
+    }
+  },
+  "grammarCheck": {
+    "title": "Vérification grammaticale IA",
+    "description": "{count} suggestions trouvées",
+    "exit": "Quitter",
+    "spelling": "Orthographe",
+    "punctuation": "Ponctuation",
+    "original": "Original",
+    "error_point": "Erreur",
+    "suggestion": "Suggestion",
+    "reason": "Raison",
+    "accept": "Appliquer",
+    "ignore": "Ignorer",
+    "found_issues": "{count} problèmes trouvés",
+    "applied_success": "Modifications appliquées",
+    "apply_error": "Texte introuvable, impossible d'appliquer automatiquement",
+    "no_errors_title": "Parfait !",
+    "no_errors_desc": "Aucune erreur de grammaire ou de ponctuation trouvée."
+  },
+  "faqDialog": {
+    "title": "Foire Aux Questions (FAQ)",
+    "description": "Conseils et solutions courants pour le workbench.",
+    "items": {
+      "browser-compatibility": {
+        "question": "Quel navigateur est recommandé ?",
+        "answer": "Nous recommandons d'utiliser la dernière version de Chrome ou Edge pour une meilleure expérience."
+      },
+      "export-failure": {
+        "question": "Que faire si l'exportation échoue ?",
+        "answer": "1. Utilisez Google Chrome.\n2. Essayez en 'mode navigation privée'.\n3. Cliquez sur 'Impression navigateur' et choisissez 'Enregistrer au format PDF'."
+      }
     }
   }
 }
