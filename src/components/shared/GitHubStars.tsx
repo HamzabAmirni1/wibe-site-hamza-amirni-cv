@@ -1,29 +1,16 @@
-import { useEffect, useState } from "react";
-import { Star } from "lucide-react";
+import { useState } from "react";
+import { Globe } from "lucide-react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-const REPO_URL = "https://github.com/JOYCEQL/magic-resume";
-const API_URL = "https://api.github.com/repos/JOYCEQL/magic-resume";
+const SITE_URL = "https://hamzaamirni.netlify.app/";
 
 export function GitHubStars() {
-  const [stars, setStars] = useState<number | null>(null);
   const [isHovered, setIsHovered] = useState(false);
-
-  useEffect(() => {
-    fetch(API_URL)
-      .then((res) => res.json())
-      .then((data) => {
-        setStars(data.stargazers_count);
-      })
-      .catch((error) => {
-        console.error("Error fetching GitHub stars:", error);
-      });
-  }, []);
 
   return (
     <motion.a
-      href={REPO_URL}
+      href={SITE_URL}
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
@@ -60,38 +47,18 @@ export function GitHubStars() {
         animate={isHovered ? { rotate: 180 } : { rotate: 0 }}
         transition={{ duration: 0.3 }}
       >
-        <Star
+        <Globe
           className={cn(
             "h-4 w-4",
-            "text-yellow-500/70 dark:text-yellow-400/70",
+            "text-sky-500/70 dark:text-sky-400/70",
             "transition-colors duration-300",
-            isHovered && "text-yellow-500 dark:text-yellow-400"
+            isHovered && "text-sky-500 dark:text-sky-400"
           )}
-          fill={isHovered ? "currentColor" : "none"}
         />
       </motion.div>
 
-      <span className="relative z-10 text-sm font-medium">Star on GitHub</span>
+      <span className="relative z-10 text-sm font-medium">Hamza Amirni</span>
 
-      {stars !== null && (
-        <>
-          <span
-            className={cn(
-              "relative z-10 w-px h-3",
-              "bg-border/60 dark:bg-white/20",
-              "transition-colors duration-300"
-            )}
-          />
-          <motion.span
-            className="relative z-10 text-sm tabular-nums"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.1 }}
-          >
-            {stars?.toLocaleString()}
-          </motion.span>
-        </>
-      )}
     </motion.a>
   );
 }
