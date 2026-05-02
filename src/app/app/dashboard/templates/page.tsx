@@ -306,7 +306,7 @@ const TemplatesPage = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 sm:gap-6">
             {DEFAULT_TEMPLATES.map((template, index) => {
               const templateKey = getTemplateKey(template.id);
               return (
@@ -350,15 +350,19 @@ const TemplatesPage = () => {
                   </div>
                   <div className="overflow-hidden flex items-center justify-center bg-gray-50 dark:bg-gray-950 py-8 pointer-events-none">
                     <div
-                      className="relative bg-white shadow-md ring-1 ring-gray-200/50 overflow-hidden"
-                      style={{ width: "420px", height: "594px" }}
+                      className="relative bg-white shadow-md ring-1 ring-gray-200/50 overflow-hidden mx-auto"
+                      style={{ 
+                        width: "min(420px, calc(100vw - 4rem))", 
+                        height: "auto", 
+                        aspectRatio: "210/297" 
+                      }}
                     >
                       <div
                         className="absolute top-0 left-0 bg-white"
                         style={{
                           width: "210mm",
                           height: "297mm",
-                          transform: `scale(${PREVIEW_MODAL_SCALE})`,
+                          transform: `scale(calc(min(420px, calc(100vw - 4rem)) / 793.7))`,
                           transformOrigin: "top left",
                           padding: `${activePreviewTemplate.spacing.contentPadding}px`,
                           fontFamily: normalizeFontFamily(

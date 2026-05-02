@@ -306,7 +306,7 @@ export default function AIPolishDialog({
           />
         </div>
 
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="space-y-2">
             <div className="flex items-center gap-2 px-3">
               <div
@@ -329,7 +329,7 @@ export default function AIPolishDialog({
                 "relative rounded-xl border",
                 "bg-neutral-50 dark:bg-neutral-800/50",
                 "border-neutral-200 dark:border-neutral-800",
-                "p-6 h-[400px] overflow-auto shadow-sm"
+                "p-6 h-[300px] md:h-[400px] overflow-auto shadow-sm"
               )}
             >
               <Streamdown
@@ -366,7 +366,7 @@ export default function AIPolishDialog({
                 "relative rounded-xl border",
                 "bg-primary/[0.03] dark:bg-primary/[0.1]",
                 "border-primary/20 dark:border-primary/30",
-                "p-6 h-[400px] overflow-auto shadow-sm scroll-smooth"
+                "p-6 h-[300px] md:h-[400px] overflow-auto shadow-sm scroll-smooth"
               )}
             >
               <Streamdown
