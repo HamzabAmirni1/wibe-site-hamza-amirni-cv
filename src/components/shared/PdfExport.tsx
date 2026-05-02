@@ -205,62 +205,74 @@ const PdfExport = ({ children }: { children?: React.ReactNode }) => {
         )}
       </DialogTrigger>
 
-      <DialogContent className="max-w-4xl gap-8 p-8 sm:rounded-2xl border-none shadow-2xl bg-gradient-to-b from-background to-muted/20">
-        <DialogHeader className="gap-2">
-          <DialogTitle className="text-2xl font-bold flex items-center gap-3">
+      <DialogContent className="max-w-4xl gap-6 p-0 sm:p-8 sm:rounded-2xl border-none shadow-2xl bg-gradient-to-b from-background to-muted/20 flex flex-col h-[90vh] sm:h-auto">
+        <DialogHeader className="gap-2 p-6 pb-0 sm:p-0">
+          <DialogTitle className="text-xl sm:text-2xl font-bold flex items-center gap-3">
             {t("modal.title")}
           </DialogTitle>
-          <DialogDescription className="text-sm text-muted-foreground/80 mt-1">
+          <DialogDescription className="text-xs sm:text-sm text-muted-foreground/80 mt-1">
             {t("modal.subtitle")}
           </DialogDescription>
         </DialogHeader>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          <ExportCard
-            icon={PdfGlassIcon}
-            title={t("button.exportPdf")}
-            description={t("modal.pdfDesc")}
-            isLoading={isExporting}
-            onClick={handleExport}
-            bgGradientClass="from-rose-500/10 dark:from-rose-500/20"
-            hoverBorderClass="hover:border-rose-500/40 hover:ring-1 hover:ring-rose-500/20"
-          />
-          <ExportCard
-            icon={PrintGlassIcon}
-            title={t("button.print")}
-            description={t("modal.printDesc")}
-            isLoading={isPrinting}
-            onClick={handlePrint}
-            bgGradientClass="from-sky-500/10 dark:from-sky-500/20"
-            hoverBorderClass="hover:border-sky-500/40 hover:ring-1 hover:ring-sky-500/20"
-          />
-          <ExportCard
-            icon={JsonGlassIcon}
-            title={t("button.exportJson")}
-            description={t("modal.jsonDesc")}
-            isLoading={isExportingJson}
-            onClick={handleJsonExport}
-            bgGradientClass="from-amber-500/10 dark:from-amber-500/20"
-            hoverBorderClass="hover:border-amber-500/40 hover:ring-1 hover:ring-amber-500/20"
-          />
-          <ExportCard
-            icon={MarkdownGlassIcon}
-            title={t("button.exportMarkdown")}
-            description={t("modal.markdownDesc")}
-            isLoading={isExportingMarkdown}
-            onClick={handleMarkdownExport}
-            bgGradientClass="from-indigo-500/10 dark:from-indigo-500/20"
-            hoverBorderClass="hover:border-indigo-500/40 hover:ring-1 hover:ring-indigo-500/20"
-          />
-          <ExportCard
-            icon={WordGlassIcon}
-            title={t("button.exportWord")}
-            description={t("modal.wordDesc")}
-            isLoading={isExportingWord}
-            onClick={handleWordExport}
-            bgGradientClass="from-blue-500/10 dark:from-blue-500/20"
-            hoverBorderClass="hover:border-blue-500/40 hover:ring-1 hover:ring-blue-500/20"
-          />
+        <div className="flex-1 overflow-y-auto px-6 pb-6 sm:px-0 sm:pb-0">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 pb-4">
+            <ExportCard
+              icon={PdfGlassIcon}
+              title={t("button.exportPdf")}
+              description={t("modal.pdfDesc")}
+              isLoading={isExporting}
+              onClick={handleExport}
+              bgGradientClass="from-rose-500/10 dark:from-rose-500/20"
+              hoverBorderClass="hover:border-rose-500/40 hover:ring-1 hover:ring-rose-500/20"
+            />
+            <ExportCard
+              icon={PrintGlassIcon}
+              title={t("button.print")}
+              description={t("modal.printDesc")}
+              isLoading={isPrinting}
+              onClick={handlePrint}
+              bgGradientClass="from-sky-500/10 dark:from-sky-500/20"
+              hoverBorderClass="hover:border-sky-500/40 hover:ring-1 hover:ring-sky-500/20"
+            />
+            <ExportCard
+              icon={JsonGlassIcon}
+              title={t("button.exportJson")}
+              description={t("modal.jsonDesc")}
+              isLoading={isExportingJson}
+              onClick={handleJsonExport}
+              bgGradientClass="from-amber-500/10 dark:from-amber-500/20"
+              hoverBorderClass="hover:border-amber-500/40 hover:ring-1 hover:ring-amber-500/20"
+            />
+            <ExportCard
+              icon={MarkdownGlassIcon}
+              title={t("button.exportMarkdown")}
+              description={t("modal.markdownDesc")}
+              isLoading={isExportingMarkdown}
+              onClick={handleMarkdownExport}
+              bgGradientClass="from-indigo-500/10 dark:from-indigo-500/20"
+              hoverBorderClass="hover:border-indigo-500/40 hover:ring-1 hover:ring-indigo-500/20"
+            />
+            <ExportCard
+              icon={WordGlassIcon}
+              title={t("button.exportWord")}
+              description={t("modal.wordDesc")}
+              isLoading={isExportingWord}
+              onClick={handleWordExport}
+              bgGradientClass="from-blue-500/10 dark:from-blue-500/20"
+              hoverBorderClass="hover:border-blue-500/40 hover:ring-1 hover:ring-blue-500/20"
+            />
+          </div>
+        </div>
+
+        <div className="p-6 pt-0 sm:hidden">
+          <Button 
+            variant="outline" 
+            className="w-full rounded-xl"
+            onClick={() => setIsOpen(false)}
+          >
+            {tBasicField ? "إغلاق" : "Close"}
+          </Button>
         </div>
       </DialogContent>
     </Dialog>
