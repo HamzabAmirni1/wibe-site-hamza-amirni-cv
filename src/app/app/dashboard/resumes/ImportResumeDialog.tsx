@@ -57,7 +57,7 @@ export const ImportResumeDialog = ({
           onOpenChange(nextOpen);
         }}
       >
-        <DialogContent className="sm:max-w-[480px]">
+        <DialogContent className="sm:max-w-[500px]">
           <DialogHeader>
             <DialogTitle>{t("dashboard.resumes.importDialog.title")}</DialogTitle>
             <DialogDescription>
@@ -69,8 +69,8 @@ export const ImportResumeDialog = ({
               type="button"
               disabled={isImporting}
               className={cn(
-                "group relative flex w-full items-start gap-4 rounded-xl border border-border/50 bg-card p-4 text-left transition-all duration-200",
-                "hover:border-primary/50 hover:bg-accent/50 hover:shadow-md",
+                "group relative flex w-full items-start gap-4 rounded-2xl border border-border/40 bg-card p-4 text-left transition-all duration-200",
+                "hover:border-primary/40 hover:bg-primary/5 hover:shadow-lg hover:shadow-primary/5",
                 "active:scale-[0.98]",
                 "disabled:opacity-60 disabled:cursor-not-allowed disabled:active:scale-100"
               )}
@@ -93,8 +93,8 @@ export const ImportResumeDialog = ({
               type="button"
               disabled={isImporting}
               className={cn(
-                "group relative flex w-full items-start gap-4 rounded-xl border border-border/50 bg-card p-4 text-left transition-all duration-200",
-                "hover:border-primary/50 hover:bg-accent/50 hover:shadow-md",
+                "group relative flex w-full items-start gap-4 rounded-2xl border border-border/40 bg-card p-4 text-left transition-all duration-200",
+                "hover:border-red-500/40 hover:bg-red-500/5 hover:shadow-lg hover:shadow-red-500/5",
                 "active:scale-[0.98]",
                 "disabled:opacity-60 disabled:cursor-not-allowed disabled:active:scale-100"
               )}

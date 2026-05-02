@@ -45,50 +45,49 @@ const DeveloperDialog = ({ open, onOpenChange }: { open: boolean, onOpenChange: 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-md">
-        <DialogHeader>
-          <DialogTitle className="text-center text-xl font-bold">المطور (Developer)</DialogTitle>
-          <DialogDescription className="text-center">
-            Hamza Amirni حمزة اعمرني
+        <DialogHeader className="items-center text-center">
+          {/* Avatar */}
+          <div className="mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-purple-700 shadow-lg shadow-primary/30">
+            <span className="text-2xl font-bold text-white">HA</span>
+          </div>
+          <DialogTitle className="text-xl">المطور (Developer)</DialogTitle>
+          <DialogDescription className="text-sm font-medium">
+            Hamza Amirni — حمزة اعمرني
           </DialogDescription>
         </DialogHeader>
-        <div className="flex flex-col gap-4 py-4">
-          <div className="grid grid-cols-2 gap-3">
-            <a href="https://whatsapp.com/channel/0029ValXRoHCnA7yKopcrn1p" target="_blank" rel="noreferrer" className="flex items-center gap-2 p-3 bg-secondary/20 rounded-lg hover:bg-secondary/40 transition-colors">
-              <MessageCircle className="text-green-500" size={24} />
-              <span className="font-medium text-sm">WhatsApp Channel</span>
-            </a>
-            <a href="https://chat.whatsapp.com/DDb3fGPuZPB1flLc1BV9gJ" target="_blank" rel="noreferrer" className="flex items-center gap-2 p-3 bg-secondary/20 rounded-lg hover:bg-secondary/40 transition-colors">
-              <MessageCircle className="text-green-500" size={24} />
-              <span className="font-medium text-sm">WhatsApp Group</span>
-            </a>
-            <a href="https://instagram.com/hamza_amirni_01" target="_blank" rel="noreferrer" className="flex items-center gap-2 p-3 bg-secondary/20 rounded-lg hover:bg-secondary/40 transition-colors">
-              <Instagram className="text-pink-500" size={24} />
-              <span className="font-medium text-sm">Instagram 1</span>
-            </a>
-            <a href="https://instagram.com/hamza_amirni_02" target="_blank" rel="noreferrer" className="flex items-center gap-2 p-3 bg-secondary/20 rounded-lg hover:bg-secondary/40 transition-colors">
-              <Instagram className="text-pink-500" size={24} />
-              <span className="font-medium text-sm">Instagram 2</span>
-            </a>
-            <a href="https://www.facebook.com/6kqzuj3y4e" target="_blank" rel="noreferrer" className="flex items-center gap-2 p-3 bg-secondary/20 rounded-lg hover:bg-secondary/40 transition-colors">
-              <Facebook className="text-blue-600" size={24} />
-              <span className="font-medium text-sm">Facebook</span>
-            </a>
-            <a href="https://www.facebook.com/profile.php?id=61564527797752" target="_blank" rel="noreferrer" className="flex items-center gap-2 p-3 bg-secondary/20 rounded-lg hover:bg-secondary/40 transition-colors">
-              <Facebook className="text-blue-600" size={24} />
-              <span className="font-medium text-sm">Facebook Page</span>
-            </a>
-            <a href="https://www.youtube.com/@Hamzaamirni01" target="_blank" rel="noreferrer" className="flex items-center gap-2 p-3 bg-secondary/20 rounded-lg hover:bg-secondary/40 transition-colors">
-              <Youtube className="text-red-500" size={24} />
-              <span className="font-medium text-sm">YouTube</span>
-            </a>
-            <a href="https://t.me/hamzaamirni" target="_blank" rel="noreferrer" className="flex items-center gap-2 p-3 bg-secondary/20 rounded-lg hover:bg-secondary/40 transition-colors">
-              <Send className="text-blue-400" size={24} />
-              <span className="font-medium text-sm">Telegram</span>
-            </a>
+
+        <div className="flex flex-col gap-3">
+          <div className="grid grid-cols-2 gap-2">
+            {[
+              { href: "https://whatsapp.com/channel/0029ValXRoHCnA7yKopcrn1p", icon: <MessageCircle className="text-green-500" size={18} />, label: "WA Channel", color: "hover:border-green-500/40 hover:bg-green-500/5" },
+              { href: "https://chat.whatsapp.com/DDb3fGPuZPB1flLc1BV9gJ", icon: <MessageCircle className="text-green-500" size={18} />, label: "WA Group", color: "hover:border-green-500/40 hover:bg-green-500/5" },
+              { href: "https://instagram.com/hamza_amirni_01", icon: <Instagram className="text-pink-500" size={18} />, label: "Instagram 1", color: "hover:border-pink-500/40 hover:bg-pink-500/5" },
+              { href: "https://instagram.com/hamza_amirni_02", icon: <Instagram className="text-pink-500" size={18} />, label: "Instagram 2", color: "hover:border-pink-500/40 hover:bg-pink-500/5" },
+              { href: "https://www.facebook.com/6kqzuj3y4e", icon: <Facebook className="text-blue-600" size={18} />, label: "Facebook", color: "hover:border-blue-500/40 hover:bg-blue-500/5" },
+              { href: "https://www.facebook.com/profile.php?id=61564527797752", icon: <Facebook className="text-blue-600" size={18} />, label: "FB Page", color: "hover:border-blue-500/40 hover:bg-blue-500/5" },
+              { href: "https://www.youtube.com/@Hamzaamirni01", icon: <Youtube className="text-red-500" size={18} />, label: "YouTube", color: "hover:border-red-500/40 hover:bg-red-500/5" },
+              { href: "https://t.me/hamzaamirni", icon: <Send className="text-sky-400" size={18} />, label: "Telegram", color: "hover:border-sky-400/40 hover:bg-sky-400/5" },
+            ].map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                target="_blank"
+                rel="noreferrer"
+                className={`flex items-center gap-2 rounded-2xl border border-border/40 bg-card px-3 py-2.5 text-sm font-medium transition-all duration-200 hover:shadow-md active:scale-95 ${link.color}`}
+              >
+                {link.icon}
+                <span className="text-foreground/90">{link.label}</span>
+              </a>
+            ))}
           </div>
-          <a href="https://hamzaamirni.netlify.app" target="_blank" rel="noreferrer" className="mt-2 flex items-center justify-center gap-2 p-3 bg-primary text-primary-foreground rounded-lg hover:opacity-90 transition-opacity">
-            <Globe size={20} />
-            <span className="font-bold">Portfolio</span>
+          <a
+            href="https://hamzaamirni.netlify.app"
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-primary to-purple-600 px-4 py-3 font-bold text-white shadow-lg shadow-primary/30 transition-all duration-200 hover:shadow-xl hover:shadow-primary/40 hover:-translate-y-0.5 active:scale-95"
+          >
+            <Globe size={18} />
+            <span>Portfolio</span>
           </a>
         </div>
       </DialogContent>

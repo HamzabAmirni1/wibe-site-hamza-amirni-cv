@@ -144,27 +144,27 @@ export const FAQDialog = () => {
         </Tooltip>
       </TooltipProvider>
 
-      <DialogContent className="sm:max-w-[500px]">
+      <DialogContent className="sm:max-w-[520px] gap-4">
         <DialogHeader>
-          <DialogTitle className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-primary">
+          <DialogTitle className="flex items-center gap-2.5">
+            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-primary/20 to-purple-600/20 text-primary">
               <HelpCircle className="h-5 w-5" />
             </div>
-             {t("title")}
+            {t("title")}
           </DialogTitle>
-          <DialogDescription>
+          <DialogDescription className="text-sm">
             {t("description")}
           </DialogDescription>
         </DialogHeader>
 
-        <div className="mt-4 max-h-[60vh] overflow-y-auto pr-2">
-          <Accordion type="single" collapsible className="w-full">
+        <div className="max-h-[60vh] overflow-y-auto pr-1 -mr-1">
+          <Accordion type="single" collapsible className="w-full space-y-1">
             {FAQ_KEYS.map((key) => (
-              <AccordionItem key={key} value={key}>
-                <AccordionTrigger className="text-left text-[15px] font-medium">
+              <AccordionItem key={key} value={key} className="rounded-xl border border-border/50 bg-card px-1 last:border-b">
+                <AccordionTrigger className="text-left text-[14px] font-semibold px-3 hover:no-underline hover:text-primary transition-colors">
                   {t(`items.${key}.question`)}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground leading-relaxed whitespace-pre-wrap">
+                <AccordionContent className="text-[13px] text-muted-foreground leading-relaxed whitespace-pre-wrap px-3 pb-3">
                   {t(`items.${key}.answer`)}
                 </AccordionContent>
               </AccordionItem>

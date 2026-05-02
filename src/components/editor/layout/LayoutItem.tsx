@@ -151,8 +151,13 @@ const LayoutItem = ({
             </AlertDialogTrigger>
             <AlertDialogContent onClick={(e) => e.stopPropagation()}>
               <AlertDialogHeader>
-                <AlertDialogTitle>{t("delete")} {item.title}</AlertDialogTitle>
-                <AlertDialogDescription>
+                <AlertDialogTitle className="flex items-center gap-2">
+                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-red-100 dark:bg-red-950">
+                    <Trash2 className="h-4 w-4 text-red-600 dark:text-red-400" />
+                  </span>
+                  {t("delete")} {item.title}
+                </AlertDialogTitle>
+                <AlertDialogDescription className="text-sm leading-relaxed">
                   {t("deleteModuleConfirm")}
                 </AlertDialogDescription>
               </AlertDialogHeader>
@@ -170,7 +175,7 @@ const LayoutItem = ({
                       ].id
                     );
                   }}
-                  className="bg-gradient-to-r from-rose-500 to-orange-400 hover:from-rose-600 hover:to-orange-500 text-white shadow-sm border-0"
+                  className="bg-red-600 hover:bg-red-700 text-white shadow-lg shadow-red-500/20 border-0 font-semibold"
                 >
                   {t("confirm")}
                 </AlertDialogAction>
