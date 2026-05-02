@@ -277,7 +277,7 @@ export const ResumeWorkbench = () => {
                 >
                     {hasConfiguredFolder ? (
                         <Alert className="mb-6 bg-green-50/50 dark:bg-green-950/30 border-green-200 dark:border-green-900">
-                            <AlertDescription className="flex items-center justify-between">
+                            <AlertDescription className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                                 <span className="text-green-700 dark:text-green-400">
                                     {t("dashboard.resumes.synced")}
                                 </span>
@@ -301,7 +301,7 @@ export const ResumeWorkbench = () => {
                         >
                             <AlertCircle className="h-4 w-4" />
                             <AlertTitle>{t("dashboard.resumes.notice.title")}</AlertTitle>
-                            <AlertDescription className="flex items-center justify-between">
+                            <AlertDescription className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                                 <span className="text-red-700 dark:text-red-400">
                                     {t("dashboard.resumes.notice.description")}
                                 </span>
@@ -322,15 +322,15 @@ export const ResumeWorkbench = () => {
                 </motion.div>
 
                 <motion.div
-                    className="px-4 sm:px-6 flex items-center justify-between"
+                    className="px-4 sm:px-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4"
                     initial={{ y: -20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ duration: 0.3 }}
                 >
-                    <h1 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100">
+                    <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100">
                         {t("dashboard.resumes.myResume")}
                     </h1>
-                    <div className="flex items-center space-x-2">
+                    <div className="flex items-center space-x-2 w-full sm:w-auto justify-end">
                         <AnimatedImportButton onClick={() => setIsImportDialogOpen(true)} t={t} />
                         <motion.div
                             whileHover={{ scale: 1.05 }}
@@ -355,7 +355,7 @@ export const ResumeWorkbench = () => {
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ duration: 0.3, delay: 0.2 }}
                 >
-                    <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 sm:gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 sm:gap-6">
                         <motion.div
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}

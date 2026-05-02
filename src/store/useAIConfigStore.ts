@@ -29,7 +29,7 @@ interface AIConfigState {
 export const useAIConfigStore = create<AIConfigState>()(
   persist(
     (set, get) => ({
-      selectedModel: "openai",
+      selectedModel: "gemini",
       doubaoApiKey: "",
       doubaoModelId: "",
       deepseekApiKey: "",
