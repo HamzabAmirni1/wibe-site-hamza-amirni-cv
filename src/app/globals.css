@@ -337,8 +337,19 @@
     justify-content: space-around;
   }
 
-  .mobile-hide-sidebar [data-sidebar="sidebar"] {
+  /* Hide sidebar completely on mobile - target all possible sidebar wrappers */
+  .mobile-hide-sidebar [data-sidebar="sidebar"],
+  .mobile-hide-sidebar aside,
+  .mobile-hide-sidebar [class*="sidebar"]:not(nav) {
     display: none !important;
+    width: 0 !important;
+    min-width: 0 !important;
+  }
+
+  /* Remove sidebar layout space */
+  .mobile-hide-sidebar > [data-sidebar-provider] {
+    display: flex;
+    flex-direction: column;
   }
 
   main {
