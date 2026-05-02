@@ -156,27 +156,26 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   };
 
   return (
-    <div className="flex h-screen bg-background">
+    <div className="flex h-screen bg-background mobile-hide-sidebar">
       <SidebarProvider open={open} onOpenChange={setOpen}>
         <Sidebar
           collapsible={collapsible}
-          className="border-r border-border/40 bg-card/50 backdrop-blur-xl"
+          className="border-r border-border/40 glass-sidebar hidden md:flex"
         >
-          <SidebarHeader className="h-16 flex items-center justify-center border-b border-border/40">
-            <div className="w-full cursor-pointer justify-center flex items-center" onClick={() => router.push(`/${locale}`)}
-            >
+          <SidebarHeader className="h-16 flex items-center justify-center border-b border-border/30">
+            <div className="w-full cursor-pointer justify-center flex items-center gap-2" onClick={() => router.push(`/${locale}`)}>
               <Logo
-                className=" hover:opacity-80 transition-opacity"
-                size={48}
+                className="hover:opacity-80 transition-opacity"
+                size={40}
               />
               {open && (
-                <span className="font-bold text-lg tracking-tight">
+                <span className="font-bold text-base tracking-tight bg-gradient-to-r from-violet-600 to-blue-500 bg-clip-text text-transparent">
                   {t("sidebar.appName")}
                 </span>
               )}
             </div>
           </SidebarHeader>
-          <SidebarContent className="px-3 py-4">
+          <SidebarContent className="px-2 py-4">
             <SidebarGroup>
               <SidebarGroupContent>
                 <SidebarMenu className="space-y-1">
@@ -190,21 +189,18 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
                               <SidebarMenuButton
                                 asChild
                                 isActive={active}
-                                className={`w-full transition-all duration-200 ease-in-out h-12 mb-1 [&>svg]:size-auto ${active
-                                  ? "bg-primary/10 text-primary font-bold hover:bg-primary/20 hover:text-primary"
-                                  : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
+                                className={`w-full transition-all duration-200 ease-in-out h-12 mb-1 rounded-xl [&>svg]:size-auto ${active
+                                  ? "bg-primary/10 text-primary font-bold hover:bg-primary/20 hover:text-primary shadow-sm"
+                                  : "text-muted-foreground hover:bg-accent/60 hover:text-accent-foreground"
                                   }`}
                               >
                                 <div
-                                  className="flex items-center gap-2 px-2 cursor-pointer"
+                                  className="flex items-center gap-3 px-3 cursor-pointer"
                                   onClick={() => handleItemClick(item)}
                                 >
-                                  <item.icon
-                                    size={24}
-                                    active={active}
-                                  />
+                                  <item.icon size={24} active={active} />
                                   {open && (
-                                    <span className="flex-1 text-sm">
+                                    <span className="flex-1 text-sm font-medium">
                                       {item.title}
                                     </span>
                                   )}
@@ -243,17 +239,50 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
           </SidebarContent>
           <SidebarFooter />
         </Sidebar>
-        <main className="flex-1 flex flex-col">
-          <div className="p-2">
+        <main className="flex-1 flex flex-col overflow-hidden">
+          <div className="p-2 hidden md:block">
             <SidebarTrigger />
           </div>
-          <div className="flex-1">{children}</div>
+          {/* Mobile top bar */}
+          <div className="md:hidden flex items-center justify-between px-4 py-3 glass-nav border-b border-border/30">
+            <div className="flex items-center gap-2 cursor-pointer" onClick={() => router.push(`/${locale}`)}>
+              <Logo size={32} />
+              <span className="font-bold text-sm bg-gradient-to-r from-violet-600 to-blue-500 bg-clip-text text-transparent">
+                {t("sidebar.appName")}
+              </span>
+            </div>
+          </div>
+          <div className="flex-1 overflow-auto">{children}</div>
         </main>
       </SidebarProvider>
+
+      {/* Mobile Bottom Navigation */}
+      <nav className="mobile-bottom-nav">
+        {sidebarItems.map((item) => {
+          const active = isItemActive(item);
+          return (
+            <button
+              key={item.title}
+              onClick={() => handleItemClick(item)}
+              className={`flex flex-col items-center gap-1 px-3 py-2 rounded-xl transition-all duration-200 ${active
+                ? "text-primary bg-primary/10"
+                : "text-muted-foreground hover:text-foreground"
+                }`}
+            >
+              <item.icon size={22} active={active} />
+              <span className="text-[10px] font-medium leading-none">
+                {item.title.split(" ")[0]}
+              </span>
+            </button>
+          );
+        })}
+      </nav>
+
       <DeveloperDialog open={developerModalOpen} onOpenChange={setDeveloperModalOpen} />
     </div>
   );
 };
 
 export default DashboardLayout;
+
 
