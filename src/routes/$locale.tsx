@@ -39,17 +39,22 @@ function getLocaleSeo(locale: Locale) {
 }
 
 export const Route = createFileRoute("/$locale")({
+  beforeLoad: ({ params }) => {
+    if (!locales.includes(params.locale as Locale)) {
+      throw redirect({ to: `/${defaultLocale}` });
+    }
+  },
   head: ({ params }) => {
     const locale = resolveLocale(params.locale);
     const seo = getLocaleSeo(locale);
 
     return {
       meta: [
-        { title: seo.title },
+        { title: "Hamza Amirni CV" },
         { name: "description", content: seo.description },
         { name: "robots", content: "index,follow" },
         { property: "og:type", content: "website" },
-        { property: "og:site_name", content: "Magic Resume" },
+        { property: "og:site_name", content: "Hamza Amirni CV" },
         { property: "og:title", content: seo.title },
         { property: "og:description", content: seo.description },
         { property: "og:locale", content: seo.localeTag },
