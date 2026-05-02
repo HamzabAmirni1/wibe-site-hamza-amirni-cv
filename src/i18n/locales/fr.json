@@ -1,0 +1,121 @@
+{
+  "common": {
+    "title": "Magic Resume",
+    "subtitle": "Éditeur de CV piloté par l'IA",
+    "description": "Magic Resume est un éditeur de CV open source, gratuit et respectueux de la vie privée. Aucune inscription requise, toutes les données sont stockées localement, prise en charge de la sauvegarde et de l'exportation des données, garantissant que vos données de CV sont toujours disponibles.",
+    "dashboard": "Tableau de bord",
+    "edit": "Modifier",
+    "delete": "Supprimer",
+    "newResume": "Nouveau CV",
+    "copy": "Copier",
+    "cancel": "Annuler",
+    "confirm": "Confirmer",
+    "deleteSuccess": "Supprimé avec succès",
+    "deleteModuleConfirm": "Êtes-vous sûr de vouloir supprimer ce module ? Cette action est irréversible.",
+    "configured": "Configuré",
+    "notConfigured": "Non configuré"
+  },
+  "home": {
+    "header": {
+      "title": "Magic Resume",
+      "startButton": "Commencer",
+      "features": "Fonctionnalités",
+      "pricing": "Tarification",
+      "about": "À propos",
+      "login": "Connexion",
+      "register": "S'inscrire",
+      "dashboard": "Tableau de bord"
+    },
+    "hero": {
+      "badge": "Création de CV intelligente",
+      "title": "Rendre la création de CV simple et intelligente",
+      "subtitle": "Magic Resume utilise la technologie de l'IA pour vous aider à créer rapidement des CV professionnels. Aucune inscription requise, gratuit, avec un stockage de données sécurisé.",
+      "cta": "Commencer",
+      "secondary": "Parcourir les modèles"
+    },
+    "features": {
+      "title": "Pourquoi choisir Magic Resume ?",
+      "subtitle": "Nous fournissons une solution de CV tout-en-un pour faciliter votre recherche d'emploi",
+      "ai": {
+        "badge": "Vérification intelligente par IA",
+        "title": "Détection intelligente, conseils professionnels",
+        "description": "Vérification grammaticale intelligente intégrée, identifie automatiquement les expressions inappropriées, fournit des suggestions de modification professionnelles, rendant votre CV plus exceptionnel.",
+        "item1": "Amélioration intelligente",
+        "item1_description": "L'IA optimise automatiquement l'expression du contenu, rendant votre CV plus professionnel",
+        "item2": "Vérification grammaticale",
+        "item2_description": "Détecte et corrige automatiquement les fautes de grammaire et d'orthographe"
+      },
+      "storage": {
+        "badge": "Stockage local",
+        "title": "Sécurité des données, la vie privée d'abord",
+        "description": "Toutes les données de CV sont entièrement stockées localement, pas d'inquiétude concernant les fuites de vie privée. Prise en charge de l'exportation et de la sauvegarde.",
+        "item1": "Stockage local des fichiers",
+        "item1_description": "Données stockées en toute sécurité sur le disque dur de votre ordinateur",
+        "item2": "Plusieurs formats d'exportation",
+        "item2_description": "Prend en charge l'exportation au format PDF et JSON",
+        "item3": "Prend en charge la sauvegarde des données"
+      },
+      "preview": {
+        "badge": "Aperçu en temps réel",
+        "title": "Ce que vous voyez est ce que vous obtenez",
+        "item1": "Aperçu en temps réel des effets d'édition",
+        "item2": "Prise en charge de plusieurs formats d'exportation"
+      }
+    },
+    "news": {
+      "label": "Actualités",
+      "content": "La nouvelle fonctionnalité d'amélioration de CV par IA est en ligne"
+    },
+    "footer": {
+      "copyright": " 2025 Magic Resume. Tous droits réservés."
+    },
+    "changelog": "Journal des modifications",
+    "cta": {
+      "title": "Commencez un nouveau chapitre de votre carrière",
+      "description": "Commencez à utiliser Magic Resume dès maintenant pour créer un CV impressionnant",
+      "button": "Commencer gratuitement"
+    },
+    "faq": {
+      "title": "Questions fréquemment posées",
+      "items": [
+        {
+          "question": "Est-ce que Magic Resume est gratuit ?",
+          "answer": "Magic Resume est actuellement gratuit pour les besoins de base. Les fonctionnalités de la version open source resteront inchangées."
+        }
+      ]
+    }
+  },
+  "dashboard": {
+    "sidebar": {
+      "appName": "Magic Resume",
+      "resumes": "CVs",
+      "settings": "Paramètres",
+      "templates": "Modèles",
+      "ai": "Configuration IA"
+    },
+    "resumes": {
+      "created": "Créé le",
+      "synced": "Fichiers synchronisés",
+      "view": "Voir",
+      "myResume": "Mes CVs",
+      "create": "Créer un CV",
+      "newResume": "Nouveau CV",
+      "newResumeDescription": "Créez un nouveau CV pour commencer.",
+      "import": "Importer un CV",
+      "untitled": "CV sans titre",
+      "importSuccess": "Configuration importée avec succès",
+      "importError": "Échec de l'importation, veuillez vérifier le format du fichier",
+      "importDialog": {
+        "title": "Importer un CV",
+        "jsonTitle": "Importer JSON",
+        "jsonDescription": "Importer un fichier de config de CV exporté (.json)",
+        "pdfTitle": "Importer PDF",
+        "pdfDescription": "Utiliser Gemini pour structurer les données du CV",
+        "importing": "Importation en cours, veuillez patienter...",
+        "geminiConfigRequired": "Veuillez d'abord configurer la clé API Gemini et l'ID du modèle dans les paramètres IA",
+        "pdfSuccess": "PDF importé avec succès",
+        "pdfError": "Échec de l'importation du PDF. Veuillez vérifier le contenu du PDF ou la configuration Gemini"
+      }
+    }
+  }
+}
