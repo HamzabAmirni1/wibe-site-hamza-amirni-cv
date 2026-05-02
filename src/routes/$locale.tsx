@@ -1,7 +1,8 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
 import LandingPage from "@/app/(public)/[locale]/page";
 import { defaultLocale, locales, type Locale } from "@/i18n/config";
-import zhMessages from "@/i18n/locales/zh.json";
+import arMessages from "@/i18n/locales/ar.json";
+import frMessages from "@/i18n/locales/fr.json";
 import enMessages from "@/i18n/locales/en.json";
 
 const SEO_BASE_URL = "https://magicv.art";
@@ -14,19 +15,26 @@ function resolveLocale(rawLocale: string): Locale {
 }
 
 function getLocaleSeo(locale: Locale) {
-  const messages = locale === "en" ? enMessages : zhMessages;
+  const messages = {
+    en: enMessages,
+    ar: arMessages,
+    fr: frMessages,
+  }[locale] || enMessages;
   const title = `${messages.common.title} - ${messages.common.subtitle}`;
   const description = messages.common.description;
-  const localeTag = locale === "en" ? "en_US" : "zh_CN";
+  const localeTags: Record<Locale, string> = {
+    en: "en_US",
+    ar: "ar_SA",
+    fr: "fr_FR",
+  };
+  const localeTag = localeTags[locale] || "en_US";
   const canonical = `${SEO_BASE_URL}/${locale}`;
-  const alternateLocale = locale === "en" ? "zh" : "en";
 
   return {
     title,
     description,
     localeTag,
-    canonical,
-    alternateLocale
+    canonical
   };
 }
 
@@ -55,12 +63,12 @@ export const Route = createFileRoute("/$locale")({
       links: [
         { rel: "canonical", href: seo.canonical },
         { rel: "alternate", hrefLang: locale, href: seo.canonical },
-        {
+        ...locales.filter(l => l !== locale).map(l => ({
           rel: "alternate",
-          hrefLang: seo.alternateLocale,
-          href: `${SEO_BASE_URL}/${seo.alternateLocale}`
-        },
-        { rel: "alternate", hrefLang: "x-default", href: `${SEO_BASE_URL}/zh` }
+          hrefLang: l,
+          href: `${SEO_BASE_URL}/${l}`
+        })),
+        { rel: "alternate", hrefLang: "x-default", href: `${SEO_BASE_URL}/en` }
       ]
     };
   },
