@@ -8,6 +8,7 @@ import { useResumeStore } from "@/store/useResumeStore";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
+import { X } from "lucide-react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import ResumeTemplateComponent from "@/components/templates";
 import { initialResumeState, initialResumeStateEn } from "@/config/initialResumeData";
@@ -333,12 +334,19 @@ const TemplatesPage = () => {
             }}
           >
             {activePreviewTemplate && (
-              <DialogContent className="max-w-[680px] p-0 overflow-hidden border-0 shadow-lg rounded-xl bg-white dark:bg-gray-900">
+              <DialogContent className="max-w-[680px] p-0 overflow-hidden border-0 shadow-xl rounded-2xl bg-white dark:bg-gray-900">
                 <div className="flex flex-col">
-                  <div className="border-b border-gray-100 dark:border-gray-800 px-4 py-4">
-                    <DialogTitle className="text-lg font-medium">
+                  <div className="border-b border-gray-100 dark:border-gray-800 px-4 py-3 flex items-center justify-between">
+                    <DialogTitle className="text-lg font-semibold">
                       {t(`${getTemplateKey(activePreviewTemplate.id)}.name`)}
                     </DialogTitle>
+                    <button
+                      onClick={() => setPreviewTemplate(null)}
+                      className="rounded-full w-8 h-8 flex items-center justify-center bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                      aria-label="Close preview"
+                    >
+                      <X size={16} />
+                    </button>
                   </div>
                   <div className="overflow-hidden flex items-center justify-center bg-gray-50 dark:bg-gray-950 py-8 pointer-events-none">
                     <div
