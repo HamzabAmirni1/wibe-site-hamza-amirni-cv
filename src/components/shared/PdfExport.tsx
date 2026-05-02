@@ -3,7 +3,7 @@ import { useTranslations } from "@/i18n/compat/client";
 import { Download, Loader2, ChevronDown } from "lucide-react";
 import { useResumeStore } from "@/store/useResumeStore";
 import { Button } from "@/components/ui/button";
-import { exportResumeAsJson, exportResumeAsMarkdown, exportToPdf } from "@/utils/export";
+import { exportResumeAsJson, exportResumeAsMarkdown, exportToPdf, exportResumeAsWord } from "@/utils/export";
 import { exportResumeToBrowserPrint } from "@/utils/print";
 import { cn } from "@/lib/utils";
 import {
@@ -20,6 +20,7 @@ import {
   PrintGlassIcon,
   JsonGlassIcon,
   MarkdownGlassIcon,
+  WordGlassIcon,
 } from "./GlassIcons";
 
 
@@ -81,6 +82,7 @@ const PdfExport = ({ children }: { children?: React.ReactNode }) => {
   const [isPrinting, setIsPrinting] = useState(false);
   const [isExportingJson, setIsExportingJson] = useState(false);
   const [isExportingMarkdown, setIsExportingMarkdown] = useState(false);
+  const [isExportingWord, setIsExportingWord] = useState(false);
   const { activeResume } = useResumeStore();
   const { globalSettings = {}, title } = activeResume || {};
   const t = useTranslations("pdfExport");
@@ -132,6 +134,17 @@ const PdfExport = ({ children }: { children?: React.ReactNode }) => {
     });
   };
 
+  const handleWordExport = () => {
+    exportResumeAsWord({
+      elementId: "resume-preview",
+      title: title || "resume",
+      onStart: () => setIsExportingWord(true),
+      onEnd: () => setIsExportingWord(false),
+      successMessage: "Word file generated successfully" || t("toast.wordSuccess"),
+      errorMessage: "Failed to generate Word file" || t("toast.wordError")
+    });
+  };
+
   const handlePrint = async () => {
     const resumeContent = document.getElementById("resume-preview");
     if (!resumeContent) {
@@ -152,16 +165,18 @@ const PdfExport = ({ children }: { children?: React.ReactNode }) => {
     }
   };
 
-  const isLoading = isExporting || isExportingJson || isExportingMarkdown || isPrinting;
+  const isLoading = isExporting || isExportingJson || isExportingMarkdown || isPrinting || isExportingWord;
   const loadingText = isExporting
     ? t("button.exporting")
     : isExportingJson
       ? t("button.exportingJson")
       : isExportingMarkdown
         ? t("button.exportingMarkdown")
-        : isPrinting
-          ? t("button.exporting")
-          : "";
+        : isExportingWord
+          ? "Exporting Word..."
+          : isPrinting
+            ? t("button.exporting")
+            : "";
 
   return (
     <Dialog open={isOpen} onOpenChange={(val) => {
@@ -236,6 +251,15 @@ const PdfExport = ({ children }: { children?: React.ReactNode }) => {
             onClick={handleMarkdownExport}
             bgGradientClass="from-indigo-500/10 dark:from-indigo-500/20"
             hoverBorderClass="hover:border-indigo-500/40 hover:ring-1 hover:ring-indigo-500/20"
+          />
+          <ExportCard
+            icon={WordGlassIcon}
+            title={"Export Word"}
+            description={"Download your resume as a Word document for easy editing offline."}
+            isLoading={isExportingWord}
+            onClick={handleWordExport}
+            bgGradientClass="from-blue-500/10 dark:from-blue-500/20"
+            hoverBorderClass="hover:border-blue-500/40 hover:ring-1 hover:ring-blue-500/20"
           />
         </div>
       </DialogContent>

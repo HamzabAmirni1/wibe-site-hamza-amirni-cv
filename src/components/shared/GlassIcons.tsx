@@ -116,3 +116,36 @@ export const MarkdownGlassIcon = ({ className, isLoading }: GlassIconProps) => (
     </path>
   </svg>
 );
+
+export const WordGlassIcon = ({ className, isLoading }: GlassIconProps) => (
+  <svg viewBox="0 0 100 100" fill="none" className={className}>
+    <defs>
+      <filter id="word-glow"><feGaussianBlur stdDeviation="8" /></filter>
+      <linearGradient id="word-glass" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stopColor="#ffffff" stopOpacity="0.7" />
+        <stop offset="100%" stopColor="#ffffff" stopOpacity="0.1" />
+      </linearGradient>
+      <linearGradient id="word-border" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stopColor="#ffffff" stopOpacity="0.9" />
+        <stop offset="100%" stopColor="#ffffff" stopOpacity="0.2" />
+      </linearGradient>
+    </defs>
+    {/* Shadow blob */}
+    <rect x="25" y="25" width="45" height="55" rx="8" fill="#2563eb" filter="url(#word-glow)" opacity="0.75" />
+    {/* Solid base */}
+    <rect x="25" y="25" width="45" height="55" rx="8" fill="#1d4ed8" />
+    {/* Glass plate overlay */}
+    <rect x="15" y="15" width="55" height="65" rx="10" fill="url(#word-glass)" stroke="url(#word-border)" strokeWidth="1.5" />
+    {/* Word marking "W" */}
+    <path d="M25 35 L33 55 L42 40 L50 55 L58 35" stroke="#ffffff" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" opacity="0.95">
+       {isLoading && <animate attributeName="stroke-opacity" values="1;0.4;1" dur="1s" repeatCount="indefinite" />}
+    </path>
+    {/* Lines for document */}
+    <rect x="30" y="60" width={isLoading ? "0" : "25"} height="4" rx="2" fill="#ffffff" opacity={isLoading ? "1" : "0.8"}>
+      {isLoading && <animate attributeName="width" values="5;30;5" dur="1.2s" repeatCount="indefinite" />}
+    </rect>
+    <rect x="30" y="68" width={isLoading ? "15" : "15"} height="4" rx="2" fill="#ffffff" opacity={isLoading ? "1" : "0.5"}>
+      {isLoading && <animate attributeName="width" values="20;5;20" dur="1.2s" repeatCount="indefinite" />}
+    </rect>
+  </svg>
+);

@@ -267,3 +267,45 @@ export const exportToPdf = async ({
     onEnd?.();
   }
 };
+
+export const exportResumeAsWord = ({
+  elementId,
+  title,
+  onStart,
+  onEnd,
+  successMessage,
+  errorMessage
+}: {
+  elementId: string;
+  title?: string;
+  onStart?: () => void;
+  onEnd?: () => void;
+  successMessage?: string;
+  errorMessage?: string;
+}) => {
+  onStart?.();
+  try {
+    const element = document.getElementById(elementId);
+    if (!element) throw new Error("Resume element not found");
+
+    const html = `
+      <html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+      <head>
+        <meta charset='utf-8'>
+        <title>Export HTML To Doc</title>
+      </head>
+      <body>
+        ${element.innerHTML}
+      </body>
+      </html>
+    `;
+    const blob = new Blob(['\ufeff', html], { type: 'application/msword' });
+    downloadBlob(blob, `${getSafeFileName(title)}.doc`);
+    if (successMessage) toast.success(successMessage);
+  } catch (error) {
+    console.error("Word export error:", error);
+    if (errorMessage) toast.error(errorMessage);
+  } finally {
+    onEnd?.();
+  }
+};
