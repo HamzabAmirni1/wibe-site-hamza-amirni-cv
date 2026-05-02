@@ -113,7 +113,7 @@ const PhotoConfigDrawer: React.FC<Props> = ({
           }
 
           console.log(
-            `原始图片大小: ${(file.size / 1024).toFixed(2)}KB, 压缩后大小: ${(
+            `Original size: ${(file.size / 1024).toFixed(2)}KB, Compressed size: ${(
               estimateBase64Size(imageData) / 1024
             ).toFixed(2)}KB`
           );
@@ -205,7 +205,7 @@ const PhotoConfigDrawer: React.FC<Props> = ({
     } catch (error) {
       toast.error(
         t("upload.invalidUrl", {
-          defaultMessage: "图片链接无效或无法访问，请尝试使用其他图片链接",
+          defaultMessage: "Invalid image link or inaccessible, please try another image link",
         })
       );
       handleRemovePhoto();

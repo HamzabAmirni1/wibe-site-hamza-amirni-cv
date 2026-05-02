@@ -60,7 +60,12 @@ export const Route = createFileRoute("/api/resume-import")({
             );
           }
 
-          const language = locale === "en" ? "English" : "Chinese";
+          const languageMap: Record<string, string> = {
+            en: "English",
+            fr: "French",
+            ar: "Arabic",
+          };
+          const language = languageMap[locale || "en"] || "English";
           const geminiModel = model || "gemini-flash-latest";
           const imageParts = Array.isArray(images)
             ? images.map((image) => {
@@ -76,17 +81,17 @@ export const Route = createFileRoute("/api/resume-import")({
           const modelInstance = getGeminiModelInstance({
             apiKey,
             model: geminiModel,
-            systemInstruction: `你是一个专业的简历结构化助手。根据用户提供的简历内容，提取信息并只输出一个合法 JSON 对象。
+            systemInstruction: `You are a professional resume structure assistant. Based on the resume content provided by the user, extract information and output only a valid JSON object.
 
-输出约束：
-1. 只允许输出 JSON，不要输出 Markdown，不要输出解释。
-2. 如果某个字段不确定，使用空字符串或空数组。
-3. 请使用 ${language} 输出内容文本。
-4. description/details 字段输出字符串数组，每一项为一句可读内容。
+Output constraints:
+1. Only JSON output is allowed. Do not output Markdown, and do not output explanations.
+2. If a field is uncertain, use an empty string or an empty array.
+3. Please use ${language} for the content text.
+4. The description/details fields should be output as an array of strings, with each item being a readable sentence.
 
-JSON 结构：
+JSON structure:
 {
-  "title": "简历标题",
+  "title": "Resume Title",
   "basic": {
     "name": "",
     "title": "",
@@ -137,7 +142,7 @@ JSON 结构：
             {
               text:
                 content ||
-                "请识别以下简历页面图片中的信息，并严格按 JSON 结构输出。",
+                "Please identify the information in the following resume page image and output it strictly according to the JSON structure.",
             },
             ...imageParts,
           ];

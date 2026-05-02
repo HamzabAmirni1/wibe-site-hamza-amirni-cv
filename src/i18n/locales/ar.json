@@ -17,7 +17,7 @@
   },
   "home": {
     "header": {
-      "title": "Magic Resume",
+      "title": "Hamza Amirni CV",
       "startButton": "ابدأ الآن",
       "features": "الميزات",
       "pricing": "الأسعار",
@@ -29,12 +29,12 @@
     "hero": {
       "badge": "إنشاء سيرة ذاتية ذكية",
       "title": "اجعل إنشاء السيرة الذاتية بسيطاً وذكياً",
-      "subtitle": "يستخدم Magic Resume تقنية الذكاء الاصطناعي لمساعدتك في إنشاء سير ذاتية احترافية بسرعة. لا يلزم التسجيل، الاستخدام مجاني، مع تخزين آمن للبيانات.",
+      "subtitle": "يستخدم Hamza Amirni CV تقنية الذكاء الاصطناعي لمساعدتك في إنشاء سير ذاتية احترافية بسرعة. لا يلزم التسجيل، الاستخدام مجاني، مع تخزين آمن للبيانات.",
       "cta": "ابدأ الآن",
       "secondary": "تصفح القوالب"
     },
     "features": {
-      "title": "لماذا تختار Magic Resume؟",
+      "title": "لماذا تختار Hamza Amirni CV؟",
       "subtitle": "نحن نقدم حلاً شاملاً للسيرة الذاتية لجعل رحلة البحث عن عمل أكثر سلاسة",
       "ai": {
         "badge": "فحص ذكي بالذكاء الاصطناعي",
@@ -67,24 +67,24 @@
       "content": "ميزة تحسين السيرة الذاتية بالذكاء الاصطناعي الجديدة متاحة الآن"
     },
     "footer": {
-      "copyright": " 2025 Magic Resume. جميع الحقوق محفوظة."
+      "copyright": " 2025 Hamza Amirni CV. جميع الحقوق محفوظة."
     },
     "changelog": "سجل التغييرات",
     "cta": {
       "title": "ابدأ فصلاً جديداً في مسيرتك المهنية",
-      "description": "ابدأ باستخدام Magic Resume الآن لإنشاء سيرة ذاتية مبهرة",
+      "description": "ابدأ باستخدام Hamza Amirni CV الآن لإنشاء سيرة ذاتية مبهرة",
       "button": "ابدأ الاستخدام مجاناً"
     },
     "faq": {
       "title": "الأسئلة الشائعة",
       "items": [
         {
-          "question": "هل Magic Resume مجاني للاستخدام؟",
-          "answer": "Magic Resume مجاني حالياً، ويلبي احتياجات إنشاء السيرة الذاتية الأساسية. ميزات النسخة مفتوحة المصدر ستبقى دون تغيير."
+          "question": "هل Hamza Amirni CV مجاني للاستخدام؟",
+          "answer": "Hamza Amirni CV مجاني حالياً، ويلبي احتياجات إنشاء السيرة الذاتية الأساسية. ميزات النسخة مفتوحة المصدر ستبقى دون تغيير."
         },
         {
           "question": "هل بيانات سيرتي الذاتية آمنة؟",
-          "answer": "نعم، آمنة جداً. يستخدم Magic Resume التخزين المحلي، مما يعني أن جميع بياناتك مخزنة على جهازك الخاص ولا يوجد تخزين سحابي، مما يضمن حماية كاملة للخصوصية."
+          "answer": "نعم، آمنة جداً. يستخدم Hamza Amirni CV التخزين المحلي، مما يعني أن جميع بياناتك مخزنة على جهازك الخاص ولا يوجد تخزين سحابي، مما يضمن حماية كاملة للخصوصية."
         }
       ]
     }
@@ -203,6 +203,9 @@
     }
   },
   "workbench": {
+    "editPanel": {
+      "clickToEdit": "انقر على النص للبدء في التعديل"
+    },
     "sidePanel": {
       "layout": {
         "title": "التنسيق",
@@ -257,7 +260,9 @@
         },
         "paragraphSpacing": {
           "title": "تباعد الفقرات"
-        }
+        },
+        "increase": "زيادة",
+        "decrease": "نقصان"
       },
       "mode": {
         "title": "الوضع",
@@ -281,10 +286,15 @@
       "customFields": {
         "placeholders": {
           "label": "التسمية",
-          "value": "القيمة"
+          "value": "القيمة",
+          "title": "العنوان",
+          "subtitle": "العنوان الفرعي",
+          "dateRange": "النطاق الزمني",
+          "description": "الوصف التفصيلي"
         },
         "displayLabel": "إظهار التسمية",
-        "addButton": "إضافة حقل مخصص"
+        "addButton": "إضافة حقل مخصص",
+        "untitledModule": "وحدة جديدة"
       },
       "basicFields": {
         "name": "الاسم",
@@ -296,11 +306,25 @@
         "birthDate": "تاريخ الميلاد",
         "employementStatus": "حالة التوظيف"
       },
+      "basicFieldsPlaceholders": {
+        "name": "أدخل الاسم الكامل",
+        "title": "أدخل المسمى الوظيفي",
+        "email": "أدخل البريد الإلكتروني",
+        "phone": "أدخل رقم الهاتف",
+        "website": "أدخل رابط الموقع",
+        "location": "أدخل الموقع",
+        "birthDate": "اختر تاريخ الميلاد",
+        "employementStatus": "أدخل حالة التوظيف"
+      },
       "fieldVisibility": {
         "show": "إظهار",
         "hide": "إخفاء"
       },
-      "githubContributions": "مساهمات جيت هاب"
+      "githubContributions": "مساهمات جيت هاب",
+      "githubPlaceholders": {
+        "token": "أدخل رمز الوصول الخاص بجيت هاب",
+        "username": "أدخل اسم المستخدم في جيت هاب"
+      }
     },
     "experiencePanel": {
       "title": "الخبرة العملية",
@@ -316,9 +340,11 @@
         "position": "المسمى الوظيفي",
         "date": "فترة العمل",
         "details": "المسؤوليات والإنجازات الوظيفية"
-      }
+      },
+      "untitledExperience": "خبرة عمل جديدة"
     },
     "experienceItem": {
+      "untitledExperience": "خبرة عمل جديدة",
       "labels": {
         "company": "اسم الشركة",
         "position": "المنصب",
@@ -357,9 +383,11 @@
         "role": "دورك ومسؤولياتك في المشروع",
         "date": "النطاق الزمني للمشروع",
         "link": "رابط المشروع"
-      }
+      },
+      "untitledProject": "مشروع جديد"
     },
     "projectItem": {
+      "untitledProject": "مشروع جديد",
       "labels": {
         "name": "اسم المشروع",
         "role": "الدور في المشروع",
@@ -395,6 +423,7 @@
     "educationPanel": {
       "title": "التعليم",
       "addButton": "إضافة تعليم",
+      "untitledEducation": "تعليم جديد",
       "defaultProject": {
         "school": "اسم المدرسة/الجامعة",
         "degree": "الدرجة العلمية",
@@ -409,6 +438,7 @@
       }
     },
     "educationItem": {
+      "untitledEducation": "تعليم جديد",
       "labels": {
         "school": "اسم المدرسة",
         "degree": "الدرجة العلمية",

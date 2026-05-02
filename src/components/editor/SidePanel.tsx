@@ -30,11 +30,7 @@ import { STANDARD_MODULES } from "@/config/modules";
 import { DEFAULT_TEMPLATES } from "@/config";
 import { getFontOptions, normalizeFontFamily } from "@/utils/fonts";
 
-const lineHeightOptions = [
-  { value: "normal", label: "默认" },
-  { value: "relaxed", label: "适中" },
-  { value: "loose", label: "宽松" },
-];
+
 
 function SettingCard({
   icon: Icon,
@@ -102,7 +98,7 @@ export function SidePanel() {
     );
   }, [currentTemplate]);
 
-  // 过滤掉 menuSections 中已存在的模块，避免重复添加和 key 冲突
+  // Filter out modules that already exist in menuSections to avoid duplicate additions and key conflicts
   const filteredModules = useMemo(() => {
     const existingIds = new Set(menuSections.map((s: MenuSection) => s.id));
     return availableModules.filter((m) => !existingIds.has(m.id));
@@ -220,7 +216,7 @@ export function SidePanel() {
           </div>
         </SettingCard>
 
-        {/* 主题色设置  */}
+        {/* Theme Settings */}
         <SettingCard
           icon={Palette}
           title={t("theme.title")}
@@ -271,7 +267,7 @@ export function SidePanel() {
           </div>
         </SettingCard>
 
-        {/* 排版设置 */}
+        {/* Typography Settings */}
         <SettingCard icon={Type} title={t("typography.title")}>
           <div className="space-y-6">
             <div className="space-y-2">
@@ -444,7 +440,7 @@ export function SidePanel() {
           </div>
         </SettingCard>
 
-        {/* 间距设置 */}
+        {/* Spacing Settings */}
         <SettingCard icon={SpaceIcon} title={t("spacing.title")}>
           <div className="space-y-6">
             <div className="space-y-2">
@@ -491,7 +487,7 @@ export function SidePanel() {
                           }
                         }}
                       >
-                        <span className="sr-only">增加</span>
+                        <span className="sr-only">{t("spacing.increase")}</span>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="12"
@@ -518,7 +514,7 @@ export function SidePanel() {
                           }
                         }}
                       >
-                        <span className="sr-only">减少</span>
+                        <span className="sr-only">{t("spacing.decrease")}</span>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="12"
@@ -587,7 +583,7 @@ export function SidePanel() {
                           }
                         }}
                       >
-                        <span className="sr-only">增加</span>
+                        <span className="sr-only">{t("spacing.increase")}</span>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="12"
@@ -615,7 +611,7 @@ export function SidePanel() {
                           }
                         }}
                       >
-                        <span className="sr-only">减少</span>
+                        <span className="sr-only">{t("spacing.decrease")}</span>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="12"
@@ -684,7 +680,7 @@ export function SidePanel() {
                           }
                         }}
                       >
-                        <span className="sr-only">增加</span>
+                        <span className="sr-only">{t("spacing.increase")}</span>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="12"
@@ -712,7 +708,7 @@ export function SidePanel() {
                           }
                         }}
                       >
-                        <span className="sr-only">减少</span>
+                        <span className="sr-only">{t("spacing.decrease")}</span>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="12"
@@ -738,7 +734,7 @@ export function SidePanel() {
           </div>
         </SettingCard>
 
-        {/* 模式设置 */}
+        {/* Mode Settings */}
         <SettingCard icon={Zap} title={t("mode.title")}>
           <div className="space-y-4">
             <div className="space-y-2">

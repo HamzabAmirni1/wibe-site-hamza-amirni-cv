@@ -209,8 +209,8 @@ export const useResumeStore = create(
             ? document.cookie
                 .split("; ")
                 .find((row) => row.startsWith("NEXT_LOCALE="))
-                ?.split("=")[1] || "zh"
-            : "zh";
+                ?.split("=")[1] || "en"
+            : "en";
 
         let initialResumeData: any;
         if (isBlank) {
@@ -232,10 +232,11 @@ export const useResumeStore = create(
           createdAt: new Date().toISOString(),
           updatedAt: new Date().toISOString(),
           templateId: template?.id,
-          title: `${locale === "en" ? "New Resume" : "新建简历"} ${id.slice(
-            0,
-            6
-          )}`,
+          title: `${
+            locale === "en" ? "New Resume" : 
+            locale === "fr" ? "Nouveau CV" : 
+            locale === "ar" ? "سيرة ذاتية جديدة" : "New Resume"
+          } ${id.slice(0, 6)}`,
         };
 
         set((state) => ({
@@ -347,14 +348,16 @@ export const useResumeStore = create(
             ? document.cookie
                 .split("; ")
                 .find((row) => row.startsWith("NEXT_LOCALE="))
-                ?.split("=")[1] || "zh"
-            : "zh";
+                ?.split("=")[1] || "en"
+            : "en";
 
         const duplicatedResume = {
           ...originalResume,
           id: newId,
           title: `${originalResume.title} (${
-            locale === "en" ? "Copy" : "复制"
+            locale === "en" ? "Copy" : 
+            locale === "fr" ? "Copie" : 
+            locale === "ar" ? "نسخة" : "Copy"
           })`,
           createdAt: new Date().toISOString(),
           updatedAt: new Date().toISOString(),
@@ -584,7 +587,7 @@ export const useResumeStore = create(
             [sectionId]: [
               {
                 id: generateUUID(),
-                title: "未命名模块",
+                title: "New Module",
                 subtitle: "",
                 dateRange: "",
                 description: "",
@@ -627,7 +630,7 @@ export const useResumeStore = create(
               ...(currentResume.customData[sectionId] || []),
               {
                 id: generateUUID(),
-                title: "未命名模块",
+                title: "New Module",
                 subtitle: "",
                 dateRange: "",
                 description: "",

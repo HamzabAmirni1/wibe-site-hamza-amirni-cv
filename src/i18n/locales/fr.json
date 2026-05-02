@@ -17,7 +17,7 @@
   },
   "home": {
     "header": {
-      "title": "Magic Resume",
+      "title": "Hamza Amirni CV",
       "startButton": "Commencer",
       "features": "Fonctionnalités",
       "pricing": "Tarification",
@@ -29,12 +29,12 @@
     "hero": {
       "badge": "Création de CV intelligente",
       "title": "Rendre la création de CV simple et intelligente",
-      "subtitle": "Magic Resume utilise la technologie de l'IA pour vous aider à créer rapidement des CV professionnels. Aucune inscription requise, gratuit, avec un stockage de données sécurisé.",
+      "subtitle": "Hamza Amirni CV utilise la technologie de l'IA pour vous aider à créer rapidement des CV professionnels. Aucune inscription requise, gratuit, avec un stockage de données sécurisé.",
       "cta": "Commencer",
       "secondary": "Parcourir les modèles"
     },
     "features": {
-      "title": "Pourquoi choisir Magic Resume ?",
+      "title": "Pourquoi choisir Hamza Amirni CV ?",
       "subtitle": "Nous fournissons une solution de CV tout-en-un pour faciliter votre recherche d'emploi",
       "ai": {
         "badge": "Vérification intelligente par IA",
@@ -67,20 +67,20 @@
       "content": "La nouvelle fonctionnalité d'amélioration de CV par IA est en ligne"
     },
     "footer": {
-      "copyright": " 2025 Magic Resume. Tous droits réservés."
+      "copyright": " 2025 Hamza Amirni CV. Tous droits réservés."
     },
     "changelog": "Journal des modifications",
     "cta": {
       "title": "Commencez un nouveau chapitre de votre carrière",
-      "description": "Commencez à utiliser Magic Resume dès maintenant pour créer un CV impressionnant",
+      "description": "Commencez à utiliser Hamza Amirni CV dès maintenant pour créer un CV impressionnant",
       "button": "Commencer gratuitement"
     },
     "faq": {
       "title": "Questions fréquemment posées",
       "items": [
         {
-          "question": "Est-ce que Magic Resume est gratuit ?",
-          "answer": "Magic Resume est actuellement gratuit pour les besoins de base. Les fonctionnalités de la version open source resteront inchangées."
+          "question": "Est-ce que Hamza Amirni CV est gratuit ?",
+          "answer": "Hamza Amirni CV est actuellement gratuit pour les besoins de base. Les fonctionnalités de la version open source resteront inchangées."
         }
       ]
     }
@@ -199,6 +199,9 @@
     }
   },
   "workbench": {
+    "editPanel": {
+      "clickToEdit": "Cliquez sur le texte pour modifier"
+    },
     "sidePanel": {
       "layout": {
         "title": "Mise en page",
@@ -253,7 +256,9 @@
         },
         "paragraphSpacing": {
           "title": "Espacement des paragraphes"
-        }
+        },
+        "increase": "Augmenter",
+        "decrease": "Diminuer"
       },
       "mode": {
         "title": "Mode",
@@ -277,10 +282,15 @@
       "customFields": {
         "placeholders": {
           "label": "Libellé",
-          "value": "Valeur"
+          "value": "Valeur",
+          "title": "Titre",
+          "subtitle": "Sous-titre",
+          "dateRange": "Période",
+          "description": "Description détaillée"
         },
         "displayLabel": "Afficher le libellé",
-        "addButton": "Ajouter un champ personnalisé"
+        "addButton": "Ajouter un champ personnalisé",
+        "untitledModule": "Nouveau module"
       },
       "basicFields": {
         "name": "Nom",
@@ -292,15 +302,30 @@
         "birthDate": "Date de naissance",
         "employementStatus": "Statut d'emploi"
       },
+      "basicFieldsPlaceholders": {
+        "name": "Entrez le nom complet",
+        "title": "Entrez l'intitulé du poste",
+        "email": "Entrez l'adresse email",
+        "phone": "Entrez le numéro de téléphone",
+        "website": "Entrez l'URL du site web",
+        "location": "Entrez la localisation",
+        "birthDate": "Choisissez la date de naissance",
+        "employementStatus": "Entrez le statut d'emploi"
+      },
       "fieldVisibility": {
         "show": "Afficher",
         "hide": "Masquer"
       },
-      "githubContributions": "Contributions GitHub"
+      "githubContributions": "Contributions GitHub",
+      "githubPlaceholders": {
+        "token": "Entrez le jeton d'accès GitHub",
+        "username": "Entrez le nom d'utilisateur GitHub"
+      }
     },
     "experiencePanel": {
       "title": "Expérience professionnelle",
       "addButton": "Ajouter une expérience",
+      "untitledExperience": "Nouvelle expérience",
       "defaultProject": {
         "company": "Entreprise Tech Ltd.",
         "position": "Ingénieur Frontend Senior",
@@ -315,6 +340,7 @@
       }
     },
     "experienceItem": {
+      "untitledExperience": "Nouvelle expérience",
       "labels": {
         "company": "Nom de l'entreprise",
         "position": "Poste",
@@ -353,9 +379,11 @@
         "role": "Votre rôle et vos responsabilités",
         "date": "Période du projet",
         "link": "Lien du projet"
-      }
+      },
+      "untitledProject": "Nouveau projet"
     },
     "projectItem": {
+      "untitledProject": "Nouveau projet",
       "labels": {
         "name": "Nom du projet",
         "role": "Rôle dans le projet",
@@ -391,6 +419,7 @@
     "educationPanel": {
       "title": "Éducation",
       "addButton": "Ajouter une éducation",
+      "untitledEducation": "Nouvelle formation",
       "defaultProject": {
         "school": "Nom de l'école",
         "degree": "Diplôme",
@@ -405,6 +434,7 @@
       }
     },
     "educationItem": {
+      "untitledEducation": "Nouvelle formation",
       "labels": {
         "school": "Nom de l'école",
         "degree": "Diplôme",

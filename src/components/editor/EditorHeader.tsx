@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import { useTranslations } from "@/i18n/compat/client";
-import { AlertCircle, ShieldCheck, ShieldAlert } from "lucide-react";
+import { useEffect, useState, useMemo } from "react";
+import { useTranslations, useLocale } from "@/i18n/compat/client";
+import { AlertCircle, ShieldCheck, ShieldAlert, Languages } from "lucide-react";
 import { motion } from "framer-motion";
 import { useRouter } from "@/lib/navigation";
 import { Input } from "@/components/ui/input";
@@ -36,6 +36,24 @@ export function EditorHeader({ isMobile }: EditorHeaderProps) {
   const { errors, selectError } = useGrammarCheck();
   const router = useRouter();
   const t = useTranslations();
+  const locale = useLocale();
+
+  const locales = useMemo(() => [
+    { code: 'en', name: 'English', flag: '🇺🇸' },
+    { code: 'fr', name: 'Français', flag: '🇫🇷' },
+    { code: 'ar', name: 'العربية', flag: '🇲🇦' }
+  ], []);
+
+  const nextLocale = useMemo(() => {
+    const currentIndex = locales.findIndex(l => l.code === locale);
+    return locales[(currentIndex + 1) % locales.length];
+  }, [locale, locales]);
+
+  const toggleLanguage = () => {
+    const currentPath = window.location.pathname;
+    const newPath = currentPath.replace(`/${locale}`, `/${nextLocale.code}`);
+    window.location.href = newPath;
+  };
   const visibleSections = menuSections
     ?.filter((section) => section.enabled)
     .sort((a, b) => a.order - b.order);
@@ -149,11 +167,21 @@ export function EditorHeader({ isMobile }: EditorHeaderProps) {
             key={activeResume?.id || "resume-title"}
             defaultValue={activeResume?.title || ""}
             onBlur={(e) => {
-              updateResumeTitle(e.target.value || "未命名简历");
+              updateResumeTitle(e.target.value || t("dashboard.resumes.untitled"));
             }}
             className="w-60  text-sm hidden md:block"
-            placeholder="简历名称"
+            placeholder={t("dashboard.resumes.untitled")}
           />
+
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={toggleLanguage}
+            className="w-9 h-9 rounded-xl hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
+            title={`Switch to ${nextLocale.name}`}
+          >
+            <Languages className="w-5 h-5" />
+          </Button>
 
           <ThemeToggle></ThemeToggle>
           <div className="md:flex items-center ">
