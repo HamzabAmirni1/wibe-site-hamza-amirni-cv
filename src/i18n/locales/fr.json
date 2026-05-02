@@ -117,5 +117,38 @@
         "pdfError": "Échec de l'importation du PDF. Veuillez vérifier le contenu du PDF ou la configuration Gemini"
       }
     }
+  },
+  "pdfExport": {
+    "modal": {
+      "title": "Exporter le CV",
+      "subtitle": "Sélectionnez le format d'exportation de votre CV",
+      "pdfDesc": "Rendu haute précision avec une précision de format de 100%. Recommandé pour les candidatures.",
+      "printDesc": "Enregistrer via la boîte de dialogue d'impression du système. Utiliser comme solution de secours.",
+      "jsonDesc": "Exportez vos données de CV au format JSON pour les sauvegarder ou les transférer.",
+      "markdownDesc": "Convertir en texte Markdown simple pour un partage facile avec les modèles d'IA.",
+      "wordDesc": "Téléchargez votre CV sous forme de document Word (.doc) pour une édition facile hors ligne."
+    },
+    "button": {
+      "export": "Exporter",
+      "exportPdf": "Exporter PDF (Serveur)",
+      "exportJson": "Exporter configuration JSON",
+      "exportMarkdown": "Exporter Markdown",
+      "exportWord": "Exporter Word",
+      "exporting": "Exportation...",
+      "exportingJson": "Exportation...",
+      "exportingMarkdown": "Exportation...",
+      "exportingWord": "Exportation...",
+      "print": "Impression navigateur"
+    },
+    "toast": {
+      "success": "PDF exporté avec succès",
+      "error": "Échec de l'exportation PDF",
+      "jsonSuccess": "Configuration exportée avec succès",
+      "jsonError": "Échec de l'exportation de la configuration",
+      "markdownSuccess": "Markdown exporté avec succès",
+      "markdownError": "Échec de l'exportation Markdown",
+      "wordSuccess": "Document Word exporté avec succès",
+      "wordError": "Échec de l'exportation Word"
+    }
   }
 }

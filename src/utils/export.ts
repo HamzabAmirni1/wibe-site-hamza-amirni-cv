@@ -288,14 +288,34 @@ export const exportResumeAsWord = ({
     const element = document.getElementById(elementId);
     if (!element) throw new Error("Resume element not found");
 
+    // Get all styles from the current document
+    const styles = Array.from(document.querySelectorAll('style, link[rel="stylesheet"]'))
+      .map(style => style.outerHTML)
+      .join('\n');
+
     const html = `
       <html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
       <head>
         <meta charset='utf-8'>
-        <title>Export HTML To Doc</title>
+        <title>${title || 'Resume'}</title>
+        ${styles}
+        <style>
+          @page {
+            size: A4;
+            margin: 0;
+          }
+          body {
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+          }
+          /* Word specific fixes */
+          .resume-container { width: 100% !important; }
+        </style>
       </head>
       <body>
-        ${element.innerHTML}
+        <div style="width: 210mm; margin: 0 auto;">
+          ${element.innerHTML}
+        </div>
       </body>
       </html>
     `;

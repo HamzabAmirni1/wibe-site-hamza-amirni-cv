@@ -260,16 +260,19 @@
       "pdfDesc": "High-precision rendering with 100% format accuracy. Recommended for job applications.",
       "printDesc": "Save via system print dialog. Use as a fallback or for custom margins.",
       "jsonDesc": "Export your resume data as JSON to backup or transfer between devices.",
-      "markdownDesc": "Convert to plain Markdown text for easy sharing with AI models."
+      "markdownDesc": "Convert to plain Markdown text for easy sharing with AI models.",
+      "wordDesc": "Download your resume as a Word document (.doc) for easy offline editing."
     },
     "button": {
       "export": "Export",
       "exportPdf": "Export PDF (Server)",
       "exportJson": "Export JSON Config",
       "exportMarkdown": "Export Markdown",
+      "exportWord": "Export Word",
       "exporting": "Exporting...",
       "exportingJson": "Exporting...",
       "exportingMarkdown": "Exporting...",
+      "exportingWord": "Exporting...",
       "print": "Browser Print"
     },
     "toast": {
@@ -278,7 +281,9 @@
       "jsonSuccess": "Configuration exported successfully",
       "jsonError": "Configuration export failed",
       "markdownSuccess": "Markdown exported successfully",
-      "markdownError": "Markdown export failed"
+      "markdownError": "Markdown export failed",
+      "wordSuccess": "Word document exported successfully",
+      "wordError": "Word export failed"
     }
   },
   "previewDock": {

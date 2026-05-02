@@ -121,5 +121,38 @@
         "pdfError": "فشل استيراد PDF. يرجى التحقق من محتوى PDF أو تكوين Gemini"
       }
     }
+  },
+  "pdfExport": {
+    "modal": {
+      "title": "تصدير السيرة الذاتية",
+      "subtitle": "حدد التنسيق الذي تريد تصدير سيرتك الذاتية به",
+      "pdfDesc": "راند عالٍ الدقة مع دقة تنسيق 100%. موصى به لطلبات التوظيف.",
+      "printDesc": "حفظ عبر مربع حوار طباعة النظام. استخدمه كخيار احتياطي.",
+      "jsonDesc": "تصدير بيانات سيرتك الذاتية كـ JSON للنسخ الاحتياطي أو النقل بين الأجهزة.",
+      "markdownDesc": "تحويل إلى نص Markdown بسيط لسهولة المشاركة مع نماذج الذكاء الاصطناعي.",
+      "wordDesc": "تنزيل سيرتك الذاتية كمستند Word (.doc) لسهولة التعديل دون اتصال بالإنترنت."
+    },
+    "button": {
+      "export": "تصدير",
+      "exportPdf": "تصدير PDF (سيرفر)",
+      "exportJson": "تصدير تكوين JSON",
+      "exportMarkdown": "تصدير Markdown",
+      "exportWord": "تصدير Word",
+      "exporting": "جاري التصدير...",
+      "exportingJson": "جاري التصدير...",
+      "exportingMarkdown": "جاري التصدير...",
+      "exportingWord": "جاري التصدير...",
+      "print": "طباعة المتصفح"
+    },
+    "toast": {
+      "success": "تم تصدير PDF بنجاح",
+      "error": "فشل تصدير PDF",
+      "jsonSuccess": "تم تصدير التكوين بنجاح",
+      "jsonError": "فشل تصدير التكوين",
+      "markdownSuccess": "تم تصدير Markdown بنجاح",
+      "markdownError": "فشل تصدير Markdown",
+      "wordSuccess": "تم تصدير مستند Word بنجاح",
+      "wordError": "فشل تصدير Word"
+    }
   }
 }

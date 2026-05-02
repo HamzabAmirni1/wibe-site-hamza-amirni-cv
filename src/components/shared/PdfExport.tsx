@@ -140,8 +140,8 @@ const PdfExport = ({ children }: { children?: React.ReactNode }) => {
       title: title || "resume",
       onStart: () => setIsExportingWord(true),
       onEnd: () => setIsExportingWord(false),
-      successMessage: "Word file generated successfully" || t("toast.wordSuccess"),
-      errorMessage: "Failed to generate Word file" || t("toast.wordError")
+      successMessage: t("toast.wordSuccess"),
+      errorMessage: t("toast.wordError")
     });
   };
 
@@ -173,7 +173,7 @@ const PdfExport = ({ children }: { children?: React.ReactNode }) => {
       : isExportingMarkdown
         ? t("button.exportingMarkdown")
         : isExportingWord
-          ? "Exporting Word..."
+          ? t("button.exportingWord")
           : isPrinting
             ? t("button.exporting")
             : "";
@@ -254,8 +254,8 @@ const PdfExport = ({ children }: { children?: React.ReactNode }) => {
           />
           <ExportCard
             icon={WordGlassIcon}
-            title={"Export Word"}
-            description={"Download your resume as a Word document for easy editing offline."}
+            title={t("button.exportWord")}
+            description={t("modal.wordDesc")}
             isLoading={isExportingWord}
             onClick={handleWordExport}
             bgGradientClass="from-blue-500/10 dark:from-blue-500/20"
