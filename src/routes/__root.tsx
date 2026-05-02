@@ -15,6 +15,7 @@ import enMessages from "@/i18n/locales/en.json";
 import { Providers } from "@/app/providers";
 import { Toaster } from "@/components/ui/sonner";
 import { getPreferredLocale } from "@/i18n/runtime";
+import { PWAHandler } from "@/components/shared/PWAHandler";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -34,6 +35,10 @@ export const Route = createRootRoute({
       {
         rel: "stylesheet",
         href: appFontCss
+      },
+      {
+        rel: "manifest",
+        href: "/manifest.webmanifest"
       }
     ]
   }),
@@ -72,6 +77,7 @@ function RootComponent() {
           <Providers>
             <Outlet />
             <Toaster position="top-center" richColors />
+            <PWAHandler />
           </Providers>
         </NextIntlClientProvider>
         <Scripts />

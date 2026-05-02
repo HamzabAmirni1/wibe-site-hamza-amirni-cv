@@ -13,7 +13,12 @@
     "deleteSuccess": "Supprimé avec succès",
     "deleteModuleConfirm": "Êtes-vous sûr de vouloir supprimer ce module ? Cette action est irréversible.",
     "configured": "Configuré",
-    "notConfigured": "Non configuré"
+    "notConfigured": "Non configuré",
+    "pwa": {
+      "installTitle": "Installer l'application",
+      "installDescription": "Installez Hamza Amirni CV en tant qu'application pour une meilleure expérience.",
+      "installButton": "Installer"
+    }
   },
   "home": {
     "header": {

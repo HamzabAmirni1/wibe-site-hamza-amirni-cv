@@ -13,7 +13,12 @@
     "deleteSuccess": "تم الحذف بنجاح",
     "deleteModuleConfirm": "هل أنت متأكد أنك تريد حذف هذه الوحدة؟ لا يمكن التراجع عن هذا الإجراء.",
     "configured": "تم التكوين",
-    "notConfigured": "لم يتم التكوين"
+    "notConfigured": "لم يتم التكوين",
+    "pwa": {
+      "installTitle": "تثبيت التطبيق",
+      "installDescription": "قم بتثبيت Hamza Amirni CV كتطبيق لتجربة أفضل وأسرع.",
+      "installButton": "تثبيت"
+    }
   },
   "home": {
     "header": {
