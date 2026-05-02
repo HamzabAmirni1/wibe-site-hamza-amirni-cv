@@ -83,3 +83,21 @@ export const IconAI: React.FC<IconProps> = ({ size = 24, className, active }) =>
     <rect x="5" y="28" width="8" height="8" rx="2" fill="#FA8C16" transform="rotate(25 9 32)" />
   </svg>
 );
+
+// Developer: Code Brackets (Flat Vibrant Teal)
+export const IconDeveloper: React.FC<IconProps> = ({ size = 24, className, active }) => (
+  <svg width={size} height={size} viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+    {/* Base Background - Teal */}
+    <rect x="4" y="4" width="32" height="32" rx="8" fill="#13C2C2" />
+    
+    {/* Code brackets and slash */}
+    <path d="M14 14L8 20L14 26" stroke="white" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M26 14L32 20L26 26" stroke="white" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M22 10L18 30" stroke="white" strokeWidth="4" strokeLinecap="round" />
+    
+    {/* Status indicator */}
+    {active && (
+      <circle cx="32" cy="32" r="5" fill="#FAAD14" stroke="white" strokeWidth="2" />
+    )}
+  </svg>
+);

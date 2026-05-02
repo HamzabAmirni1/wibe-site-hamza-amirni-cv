@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { IconResumes, IconTemplates, IconSettings, IconAI } from "@/components/shared/icons/SidebarIcons";
+import { IconResumes, IconTemplates, IconSettings, IconAI, IconDeveloper } from "@/components/shared/icons/SidebarIcons";
 import { usePathname, useRouter } from "@/lib/navigation";
 import {
   Sidebar,
@@ -29,6 +29,7 @@ interface MenuItem {
   href?: string;
   icon: any;
   items?: { title: string; href: string }[];
+  isExternal?: boolean;
 }
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
@@ -54,7 +55,12 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
       url: "/app/dashboard/settings",
       icon: IconSettings,
     },
-
+    {
+      title: "المطور (Developer)",
+      url: "https://hamzaamirni.netlify.app",
+      icon: IconDeveloper,
+      isExternal: true,
+    },
   ];
 
   const router = useRouter();
@@ -68,12 +74,15 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   const handleItemClick = (item: MenuItem) => {
     if (item.items) {
 
+    } else if (item.isExternal && item.url) {
+      window.open(item.url, "_blank");
     } else {
       router.push(item.url || item.href || "/");
     }
   };
 
   const isItemActive = (item: MenuItem) => {
+    if (item.isExternal) return false;
     if (item.items) {
       return item.items.some((subItem) => pathname === subItem.href);
     }
