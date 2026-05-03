@@ -30,6 +30,9 @@ import {
 import { Instagram, Facebook, Youtube, MessageCircle, Send, Globe } from "lucide-react";
 import Logo from "@/components/shared/Logo";
 import { useLocale, useTranslations } from "@/i18n/compat/client";
+import { UserMenu } from "@/components/shared/UserMenu";
+import ThemeToggle from "@/components/shared/ThemeToggle";
+import { Sun, Moon } from "lucide-react";
 
 interface MenuItem {
   title: string;
@@ -239,17 +242,27 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
           <SidebarFooter />
         </Sidebar>
         <main className="flex-1 flex flex-col overflow-hidden">
-          <div className="p-2 hidden md:block">
+          <div className="p-4 hidden md:flex items-center justify-between border-b border-border/30 bg-background/50 backdrop-blur-sm">
             <SidebarTrigger />
+            <div className="flex items-center gap-4">
+              <ThemeToggle>
+                <div className="w-9 h-9 relative cursor-pointer rounded-xl hover:bg-accent/80 flex items-center justify-center transition-colors">
+                  <Sun className="h-[1.1rem] w-[1.1rem] absolute inset-0 m-auto rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+                  <Moon className="h-[1.1rem] w-[1.1rem] absolute inset-0 m-auto rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+                </div>
+              </ThemeToggle>
+              <UserMenu />
+            </div>
           </div>
           {/* Mobile top bar */}
-          <div className="md:hidden flex items-center justify-between px-4 py-3 glass-nav border-b border-border/30">
+          <div className="md:hidden flex items-center justify-between px-4 py-3 glass-nav border-b border-border/30 bg-background/50 backdrop-blur-sm">
             <div className="flex items-center gap-2 cursor-pointer" onClick={() => router.push(`/${locale}`)}>
               <Logo size={32} />
               <span className="font-bold text-sm bg-gradient-to-r from-violet-600 to-blue-500 bg-clip-text text-transparent">
                 {t("sidebar.appName")}
               </span>
             </div>
+            <UserMenu />
           </div>
           <div className="flex-1 overflow-auto">{children}</div>
         </main>

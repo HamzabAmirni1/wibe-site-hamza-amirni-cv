@@ -12,6 +12,9 @@ export function useSupabaseAuth() {
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session)
       setIsLoading(false)
+      if (session) {
+        useResumeStore.getState().fetchRemoteResumes()
+      }
     })
 
     // Listen for auth changes
