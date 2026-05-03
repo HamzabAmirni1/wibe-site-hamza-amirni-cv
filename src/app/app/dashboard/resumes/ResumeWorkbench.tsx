@@ -16,6 +16,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { cn } from "@/lib/utils";
 import { getConfig, getFileHandle } from "@/utils/fileSystem";
 import { useResumeStore } from "@/store/useResumeStore";
+import { useAuthStore } from "@/store/useAuthStore";
 import { useAIConfigStore } from "@/store/useAIConfigStore";
 import { DEFAULT_TEMPLATES } from "@/config";
 import { CreateResumeModal } from "./CreateResumeModal";
@@ -43,6 +44,7 @@ export const ResumeWorkbench = () => {
         deleteResume,
         createResume,
     } = useResumeStore();
+    const { user } = useAuthStore();
     const {
         geminiApiKey,
         geminiModelId,
@@ -269,57 +271,59 @@ export const ResumeWorkbench = () => {
                 transition={{ duration: 0.3 }}
                 className="flex-1 space-y-6 py-8"
             >
-                <motion.div
-                    className="flex w-full items-center justify-center px-4"
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.3, delay: 0.1 }}
-                >
-                    {hasConfiguredFolder ? (
-                        <Alert className="mb-6 bg-green-50/50 dark:bg-green-950/30 border-green-200 dark:border-green-900">
-                            <AlertDescription className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                                <span className="text-green-700 dark:text-green-400">
-                                    {t("dashboard.resumes.synced")}
-                                </span>
-                                <Button
-                                    size="sm"
-                                    variant="outline"
-                                    className="ml-4 hover:bg-green-100 dark:hover:bg-green-900"
-                                    onClick={() => {
-                                        router.push("/app/dashboard/settings");
-                                    }}
-                                >
-                                    <Settings className="w-4 h-4 mr-2" />
-                                    {t("dashboard.resumes.view")}
-                                </Button>
-                            </AlertDescription>
-                        </Alert>
-                    ) : (
-                        <Alert
-                            variant="destructive"
-                            className="mb-6 bg-red-50/50 dark:bg-red-950/30 border-red-200 dark:border-red-900"
-                        >
-                            <AlertCircle className="h-4 w-4" />
-                            <AlertTitle>{t("dashboard.resumes.notice.title")}</AlertTitle>
-                            <AlertDescription className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                                <span className="text-red-700 dark:text-red-400">
-                                    {t("dashboard.resumes.notice.description")}
-                                </span>
-                                <Button
-                                    variant="outline"
-                                    size="sm"
-                                    className="ml-4 hover:bg-red-100 dark:hover:bg-red-900"
-                                    onClick={() => {
-                                        router.push("/app/dashboard/settings");
-                                    }}
-                                >
-                                    <Settings className="w-4 h-4 mr-2" />
-                                    {t("dashboard.resumes.notice.goToSettings")}
-                                </Button>
-                            </AlertDescription>
-                        </Alert>
-                    )}
-                </motion.div>
+                {!user && (
+                  <motion.div
+                      className="flex w-full items-center justify-center px-4"
+                      initial={{ y: 20, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      transition={{ duration: 0.3, delay: 0.1 }}
+                  >
+                      {hasConfiguredFolder ? (
+                          <Alert className="mb-6 bg-green-50/50 dark:bg-green-950/30 border-green-200 dark:border-green-900">
+                              <AlertDescription className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                                  <span className="text-green-700 dark:text-green-400">
+                                      {t("dashboard.resumes.synced")}
+                                  </span>
+                                  <Button
+                                      size="sm"
+                                      variant="outline"
+                                      className="ml-4 hover:bg-green-100 dark:hover:bg-green-900"
+                                      onClick={() => {
+                                          router.push("/app/dashboard/settings");
+                                      }}
+                                  >
+                                      <Settings className="w-4 h-4 mr-2" />
+                                      {t("dashboard.resumes.view")}
+                                  </Button>
+                              </AlertDescription>
+                          </Alert>
+                      ) : (
+                          <Alert
+                              variant="destructive"
+                              className="mb-6 bg-red-50/50 dark:bg-red-950/30 border-red-200 dark:border-red-900"
+                          >
+                              <AlertCircle className="h-4 w-4" />
+                              <AlertTitle>{t("dashboard.resumes.notice.title")}</AlertTitle>
+                              <AlertDescription className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                                  <span className="text-red-700 dark:text-red-400">
+                                      {t("dashboard.resumes.notice.description")}
+                                  </span>
+                                  <Button
+                                      variant="outline"
+                                      size="sm"
+                                      className="ml-4 hover:bg-red-100 dark:hover:bg-red-900"
+                                      onClick={() => {
+                                          router.push("/app/dashboard/settings");
+                                      }}
+                                  >
+                                      <Settings className="w-4 h-4 mr-2" />
+                                      {t("dashboard.resumes.notice.goToSettings")}
+                                  </Button>
+                              </AlertDescription>
+                          </Alert>
+                      )}
+                  </motion.div>
+                )}
 
                 <motion.div
                     className="px-4 sm:px-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4"
