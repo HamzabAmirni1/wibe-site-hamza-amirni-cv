@@ -45,7 +45,7 @@ export function MobileWorkbench() {
   return (
     <div className="flex flex-col h-full bg-background overflow-hidden relative">
       {/* 主要内容区域 */}
-      <div className="flex-1 overflow-hidden relative pb-20">
+      <div className="flex-1 overflow-y-auto relative pb-20">
         <AnimatePresence mode="wait">
           {activeTab === "content" && (
             <motion.div
@@ -98,7 +98,7 @@ export function MobileWorkbench() {
               </div>
               
               {/* 编辑区域 */}
-              <div className="flex-1 overflow-hidden">
+              <div className="flex-1 h-full">
                 <EditPanel />
               </div>
             </motion.div>
@@ -111,7 +111,7 @@ export function MobileWorkbench() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 20 }}
               transition={{ duration: 0.2 }}
-              className="h-full overflow-hidden"
+              className="h-full overflow-y-auto"
             >
               <SidePanel />
             </motion.div>
