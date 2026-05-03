@@ -36,6 +36,7 @@ export function AuthDialog({ children }: { children?: React.ReactNode }) {
     } else {
       toast.success(t("signInSuccess"))
       setIsOpen(false)
+      window.location.reload()
     }
   }
 

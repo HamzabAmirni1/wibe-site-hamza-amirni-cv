@@ -12,19 +12,12 @@ interface AuthState {
   signOut: () => void
 }
 
-export const useAuthStore = create<AuthState>()(
-  persist(
-    (set) => ({
-      session: null,
-      user: null,
-      isLoading: true,
-      setSession: (session) => set({ session, user: session?.user ?? null }),
-      setUser: (user) => set({ user }),
-      setIsLoading: (isLoading) => set({ isLoading }),
-      signOut: () => set({ session: null, user: null }),
-    }),
-    {
-      name: 'magic-resume-auth',
-    }
-  )
-)
+export const useAuthStore = create<AuthState>((set) => ({
+  session: null,
+  user: null,
+  isLoading: true,
+  setSession: (session) => set({ session, user: session?.user ?? null }),
+  setUser: (user) => set({ user }),
+  setIsLoading: (isLoading) => set({ isLoading }),
+  signOut: () => set({ session: null, user: null }),
+}))
