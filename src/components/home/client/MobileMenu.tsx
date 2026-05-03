@@ -29,6 +29,7 @@ export default function MobileMenu({
 }: MobileMenuProps) {
   const t = useTranslations("home");
   const locale = useLocale();
+  const { user } = useAuthStore();
 
   if (!isOpen) return null;
 
@@ -39,46 +40,44 @@ export default function MobileMenu({
       exit={{ opacity: 0, y: -20 }}
       className="fixed inset-x-0 top-16 z-50 md:hidden"
     >
-      <div className="bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-t border-b dark:border-gray-800">
-        <nav className="mx-auto max-w-[1200px] px-4 py-6 flex flex-col gap-6">
-          <div className="flex items-center justify-center gap-8">
-            <LanguageSwitch />
-            <ThemeToggle>
-              <div className="w-8 h-8 relative cursor-pointer rounded-md hover:bg-accent/50 flex items-center justify-center">
-                <Sun className="h-[1.2rem] w-[1.2rem] absolute inset-0 m-auto rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-                <Moon className="h-[1.2rem] w-[1.2rem] absolute inset-0 m-auto rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-              </div>
-            </ThemeToggle>
+      <div className="bg-background/90 backdrop-blur-xl border-b border-border shadow-xl">
+        <nav className="mx-auto max-w-[1200px] px-6 py-8 flex flex-col gap-6">
+          <div className="flex items-center justify-between bg-accent/20 p-4 rounded-2xl">
+            <div className="flex gap-4">
+              <LanguageSwitch />
+              <ThemeToggle>
+                <div className="w-10 h-10 relative cursor-pointer rounded-xl hover:bg-accent/50 flex items-center justify-center transition-colors">
+                  <Sun className="h-[1.2rem] w-[1.2rem] absolute inset-0 m-auto rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+                  <Moon className="h-[1.2rem] w-[1.2rem] absolute inset-0 m-auto rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+                </div>
+              </ThemeToggle>
+            </div>
             <GitHubStars />
           </div>
 
-
-          {extraItems && extraItems.length > 0 && (
-            <div className="flex flex-col items-center justify-center gap-2">
-              {extraItems.map((item, index) => (
-                <div key={index}>{item.component}</div>
-              ))}
-            </div>
-          )}
-
-          <div className="flex flex-col gap-3 px-4">
-            {useAuthStore().user ? (
-              <Button
-                size="default"
-                className="bg-primary hover:opacity-90 text-white w-full py-6 rounded-xl"
-                asChild
-              >
-                <Link href="/app/dashboard" onClick={onClose}>
-                  {buttonText}
-                </Link>
-              </Button>
+          <div className="flex flex-col gap-3">
+            {user ? (
+              <div className="flex flex-col gap-3">
+                <Button
+                  size="lg"
+                  className="bg-primary hover:opacity-90 text-white w-full h-14 rounded-2xl font-bold shadow-lg shadow-primary/20"
+                  asChild
+                >
+                  <Link href="/app/dashboard" onClick={onClose}>
+                    {buttonText}
+                  </Link>
+                </Button>
+                <div className="flex justify-center pt-2">
+                   <UserMenu />
+                </div>
+              </div>
             ) : (
               <AuthDialog>
                 <Button
-                  size="default"
-                  className="bg-primary hover:opacity-90 text-white w-full py-6 rounded-xl"
+                  size="lg"
+                  className="bg-primary hover:opacity-90 text-white w-full h-14 rounded-2xl font-bold shadow-lg shadow-primary/20"
                 >
-                  Sign In
+                  {t("header.startButton")}
                 </Button>
               </AuthDialog>
             )}

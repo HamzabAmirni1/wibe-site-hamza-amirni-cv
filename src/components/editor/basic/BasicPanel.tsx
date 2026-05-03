@@ -43,7 +43,7 @@ const CustomField: React.FC<CustomFieldProps> = ({
       <motion.div
         {...itemAnimations}
         className={cn(
-          "grid grid-cols-[auto,auto,1fr,1fr,auto,auto] gap-3 items-center p-3",
+          "flex flex-col sm:grid sm:grid-cols-[auto,auto,1fr,1fr,auto,auto] gap-3 items-center p-3",
           "bg-card rounded-xl",
           "border border-border",
           "transition-all duration-200",
@@ -100,7 +100,7 @@ const CustomField: React.FC<CustomFieldProps> = ({
           )}
         />
 
-        <div className="flex items-center gap-2 whitespace-nowrap">
+        <div className="flex items-center gap-2 whitespace-nowrap sm:col-span-1">
           <Switch
             checked={field.displayLabel ?? false}
             onCheckedChange={(checked) =>
@@ -286,25 +286,27 @@ const BasicPanel: React.FC = () => {
             </div>
           )}
 
-          <div className="flex flex-1 min-w-0 items-center">
-            {field.key !== "name" && field.key !== "title" && (
-              <IconSelector
-                value={selectedIcon}
-                onChange={(value) => {
-                  updateBasicInfo({
-                    ...basic,
-                    icons: {
-                      ...(basic?.icons || {}),
-                      [field.key]: value,
-                    },
-                  });
-                }}
-              />
-            )}
-            <div className=" w-[80px] ml-[4px] text-sm font-medium text-foreground">
-              {t(`basicFields.${field.key}`)}
+          <div className="flex flex-col sm:flex-row flex-1 min-w-0 items-start sm:items-center gap-2 sm:gap-0">
+            <div className="flex items-center gap-2 w-full sm:w-auto">
+              {field.key !== "name" && field.key !== "title" && (
+                <IconSelector
+                  value={selectedIcon}
+                  onChange={(value) => {
+                    updateBasicInfo({
+                      ...basic,
+                      icons: {
+                        ...(basic?.icons || {}),
+                        [field.key]: value,
+                      },
+                    });
+                  }}
+                />
+              )}
+              <div className="sm:w-[80px] sm:ml-[4px] text-sm font-medium text-foreground">
+                {t(`basicFields.${field.key}`)}
+              </div>
             </div>
-            <div className="flex-1">
+            <div className="w-full sm:flex-1">
               <Field
                 label=""
                 value={(basic?.[field.key] as string) ?? ""}
