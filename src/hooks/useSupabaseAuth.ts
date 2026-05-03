@@ -11,19 +11,32 @@ export function useSupabaseAuth() {
     // Get initial session
     const checkSession = async () => {
       try {
+        // Fallback: If hash exists, FORCE parse it manually
+        const hash = window.location.hash;
+        if (hash && hash.includes('access_token')) {
+          const params = new URLSearchParams(hash.replace('#', ''));
+          const accessToken = params.get('access_token');
+          const refreshToken = params.get('refresh_token');
+          
+          if (accessToken && refreshToken) {
+            const { data, error } = await supabase.auth.setSession({
+              access_token: accessToken,
+              refresh_token: refreshToken,
+            });
+            if (data.session) {
+              setSession(data.session);
+              window.history.replaceState(null, '', window.location.pathname); // Clean URL
+              await useResumeStore.getState().fetchRemoteResumes();
+              setIsLoading(false);
+              return; // Successfully manually authenticated
+            }
+          }
+        }
+
         const { data: { session } } = await supabase.auth.getSession()
         if (session) {
           setSession(session)
           await useResumeStore.getState().fetchRemoteResumes()
-        } else {
-          // Fallback: If no session but hash exists, try to refresh
-          if (window.location.hash.includes('access_token')) {
-             const { data, error } = await supabase.auth.getSession()
-             if (data.session) {
-               setSession(data.session)
-               await useResumeStore.getState().fetchRemoteResumes()
-             }
-          }
         }
       } catch (e) {
         console.error("Session check error", e)
