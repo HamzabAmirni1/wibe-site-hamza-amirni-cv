@@ -20,6 +20,9 @@ import {
   blankResumeStateEn,
 } from "@/config/initialResumeData";
 import { generateUUID } from "@/utils/uuid";
+import { supabase } from "@/lib/supabase";
+import { useAuthStore } from "./useAuthStore";
+
 interface ResumeStore {
   resumes: Record<string, ResumeData>;
   activeResumeId: string | null;
@@ -71,6 +74,8 @@ interface ResumeStore {
   updateCertificate: (id: string, updates: Partial<Certificate>) => void;
   updateCertificatesBatch: (certificates: Certificate[]) => void;
   removeCertificate: (id: string) => void;
+  syncToSupabase: (resumeData: ResumeData) => Promise<void>;
+  fetchRemoteResumes: () => Promise<void>;
 }
 
 type PersistedResumeStore = Pick<ResumeStore, "resumes" | "activeResumeId">;
@@ -183,8 +188,32 @@ const syncResumeToFile = async (
   }
 };
 
-// 防抖同步：合并高频写入，1.5秒内多次编辑只触发一次文件写入
+// Sync to Supabase
+const syncResumeToSupabase = async (resumeData: ResumeData) => {
+  const { user } = useAuthStore.getState();
+  if (!user) return;
+
+  try {
+    const { error } = await supabase
+      .from('resumes')
+      .upsert({
+        id: resumeData.id,
+        user_id: user.id,
+        title: resumeData.title,
+        data: resumeData,
+        updated_at: new Date().toISOString()
+      }, { onConflict: 'id' });
+
+    if (error) throw error;
+  } catch (error) {
+    console.error("Error syncing resume to Supabase:", error);
+  }
+};
+
+// 防抖同步：合并高频写入
 let syncTimer: ReturnType<typeof setTimeout> | null = null;
+let supabaseSyncTimer: ReturnType<typeof setTimeout> | null = null;
+
 const debouncedSyncToFile = (
   resumeData: ResumeData,
   prevResume?: ResumeData
@@ -194,6 +223,13 @@ const debouncedSyncToFile = (
     syncResumeToFile(resumeData, prevResume);
     syncTimer = null;
   }, 1500);
+
+  // Sync to Supabase as well
+  if (supabaseSyncTimer) clearTimeout(supabaseSyncTimer);
+  supabaseSyncTimer = setTimeout(() => {
+    syncResumeToSupabase(resumeData);
+    supabaseSyncTimer = null;
+  }, 3000); // Slightly longer delay for cloud sync
 };
 
 export const useResumeStore = create(
@@ -320,20 +356,34 @@ export const useResumeStore = create(
           };
         });
 
+        // Delete from local file system
         (async () => {
           try {
             const handle = await getFileHandle("syncDirectory");
             if (!handle) return;
-
             const hasPermission = await verifyPermission(handle);
             if (!hasPermission) return;
-
             const dirHandle = handle as FileSystemDirectoryHandle;
             try {
               await dirHandle.removeEntry(`${resume.title}.json`);
             } catch (error) {}
           } catch (error) {
             console.error("Error deleting resume file:", error);
+          }
+        })();
+        
+        // Delete from Supabase
+        (async () => {
+          const { user } = useAuthStore.getState();
+          if (!user) return;
+          try {
+            await supabase
+              .from('resumes')
+              .delete()
+              .eq('id', resumeId)
+              .eq('user_id', user.id);
+          } catch (error) {
+            console.error("Error deleting resume from Supabase:", error);
           }
         })();
       },
@@ -786,7 +836,48 @@ export const useResumeStore = create(
         }));
 
         syncResumeToFile(resume);
+        syncResumeToSupabase(resume);
         return resume.id;
+      },
+
+      syncToSupabase: async (resumeData) => {
+        await syncResumeToSupabase(resumeData);
+      },
+
+      fetchRemoteResumes: async () => {
+        const { user } = useAuthStore.getState();
+        if (!user) return;
+
+        try {
+          const { data, error } = await supabase
+            .from('resumes')
+            .select('data')
+            .eq('user_id', user.id);
+
+          if (error) throw error;
+
+          if (data) {
+            const remoteResumes: Record<string, ResumeData> = {};
+            data.forEach((item: any) => {
+              remoteResumes[item.data.id] = item.data;
+            });
+
+            set((state) => {
+              // Merge remote with local, newer updatedAt wins
+              const mergedResumes = { ...state.resumes };
+              Object.values(remoteResumes).forEach((remote) => {
+                const local = mergedResumes[remote.id];
+                if (!local || new Date(remote.updatedAt) > new Date(local.updatedAt)) {
+                  mergedResumes[remote.id] = remote;
+                }
+              });
+
+              return { resumes: mergedResumes };
+            });
+          }
+        } catch (error) {
+          console.error("Error fetching remote resumes:", error);
+        }
       },
     }),
     {

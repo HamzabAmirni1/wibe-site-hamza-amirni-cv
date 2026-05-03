@@ -1,6 +1,8 @@
 import { useEffect } from 'react'
 import { supabase } from '@/lib/supabase'
 import { useAuthStore } from '@/store/useAuthStore'
+import { useResumeStore } from '@/store/useResumeStore'
+
 
 export function useSupabaseAuth() {
   const { setSession, setIsLoading } = useAuthStore()
@@ -18,6 +20,9 @@ export function useSupabaseAuth() {
     } = supabase.auth.onAuthStateChange((_event, session) => {
       setSession(session)
       setIsLoading(false)
+      if (session) {
+        useResumeStore.getState().fetchRemoteResumes()
+      }
     })
 
     return () => subscription.unsubscribe()
