@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useResumeStore } from "@/store/useResumeStore";
+import { useAuthStore } from "@/store/useAuthStore";
 import { syncResumesFromDirectory } from "@/utils/resumeFileSync";
 
 let hasSyncedFromDirectory = false;
@@ -10,8 +11,10 @@ export const useResumeDirectorySync = () => {
     (state) => state.updateResumeFromFile
   );
 
+  const { session, isLoading } = useAuthStore();
+
   useEffect(() => {
-    if (hasSyncedFromDirectory || activeSyncPromise) {
+    if (isLoading || !!session || hasSyncedFromDirectory || activeSyncPromise) {
       return;
     }
 
