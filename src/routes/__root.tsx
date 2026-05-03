@@ -95,11 +95,21 @@ function RootComponent() {
 }
 
 function AuthStatusDisplay() {
-  const { user, isLoading } = useAuthStore();
+  const { user, isLoading, session } = useAuthStore();
+  const [lastEvent, setLastEvent] = useState("None");
+
+  useEffect(() => {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event) => {
+      setLastEvent(event);
+    });
+    return () => subscription.unsubscribe();
+  }, []);
+
   return (
     <>
       <div>USER: {user ? "Logged In" : "Not Logged In"}</div>
       <div>LOADING: {isLoading ? "YES" : "NO"}</div>
+      <div>EVENT: {lastEvent}</div>
       {user && <div className="text-green-400">ID: {user.id.slice(0, 8)}...</div>}
     </>
   );

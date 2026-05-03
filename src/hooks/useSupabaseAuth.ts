@@ -9,15 +9,30 @@ export function useSupabaseAuth() {
 
   useEffect(() => {
     // Get initial session
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session)
-      setIsLoading(false)
-      if (session) {
-        useResumeStore.getState().fetchRemoteResumes()
+    const checkSession = async () => {
+      try {
+        const { data: { session } } = await supabase.auth.getSession()
+        if (session) {
+          setSession(session)
+          await useResumeStore.getState().fetchRemoteResumes()
+        } else {
+          // Fallback: If no session but hash exists, try to refresh
+          if (window.location.hash.includes('access_token')) {
+             const { data, error } = await supabase.auth.getSession()
+             if (data.session) {
+               setSession(data.session)
+               await useResumeStore.getState().fetchRemoteResumes()
+             }
+          }
+        }
+      } catch (e) {
+        console.error("Session check error", e)
+      } finally {
+        setIsLoading(false)
       }
-    }).catch(() => {
-      setIsLoading(false)
-    })
+    }
+
+    checkSession()
 
     // Listen for auth changes
     const {
@@ -35,7 +50,6 @@ export function useSupabaseAuth() {
         setSession(null)
         setIsLoading(false)
       } else {
-        // Handle INITIAL_SESSION or other events
         setSession(session)
         setIsLoading(false)
       }
