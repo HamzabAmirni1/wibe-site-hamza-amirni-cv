@@ -8,8 +8,7 @@ import {
 import appCss from "../app/globals.css?url";
 import appFontCss from "../app/font.css?url";
 import { NextIntlClientProvider } from "@/i18n/compat/client";
-import { useEffect, useState } from "react";
-import { supabase } from "@/lib/supabase";
+import { useEffect } from "react";
 import arMessages from "@/i18n/locales/ar.json";
 import frMessages from "@/i18n/locales/fr.json";
 import enMessages from "@/i18n/locales/en.json";
@@ -17,7 +16,6 @@ import { Providers } from "@/app/providers";
 import { Toaster } from "@/components/ui/sonner";
 import { getPreferredLocale } from "@/i18n/runtime";
 import { PWAHandler } from "@/components/shared/PWAHandler";
-import { useAuthStore } from "@/store/useAuthStore";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -78,41 +76,13 @@ function RootComponent() {
         >
           <Providers>
             <Outlet />
-            <Toaster position="top-center" richColors />
+            <Toaster position="bottom-center" richColors />
             <PWAHandler />
-            
-            {/* Auth Debugger - Temporary */}
-            <div className="fixed bottom-4 left-4 z-[9999] p-2 bg-black/80 text-white text-[10px] rounded-lg border border-white/20 font-mono">
-              <div>URL: {import.meta.env.VITE_SUPABASE_URL ? "✅" : "❌"}</div>
-              <div>KEY: {import.meta.env.VITE_SUPABASE_ANON_KEY ? "✅" : "❌"}</div>
-              <AuthStatusDisplay />
-            </div>
           </Providers>
         </NextIntlClientProvider>
         <Scripts />
       </body>
     </html>
-  );
-}
-
-function AuthStatusDisplay() {
-  const { user, isLoading, session } = useAuthStore();
-  const [lastEvent, setLastEvent] = useState("None");
-
-  useEffect(() => {
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((event) => {
-      setLastEvent(event);
-    });
-    return () => subscription.unsubscribe();
-  }, []);
-
-  return (
-    <>
-      <div>USER: {user ? "Logged In" : "Not Logged In"}</div>
-      <div>LOADING: {isLoading ? "YES" : "NO"}</div>
-      <div>EVENT: {lastEvent}</div>
-      {user && <div className="text-green-400">ID: {user.id.slice(0, 8)}...</div>}
-    </>
   );
 }
 
