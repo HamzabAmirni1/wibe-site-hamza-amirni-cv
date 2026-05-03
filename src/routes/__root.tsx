@@ -16,6 +16,7 @@ import { Providers } from "@/app/providers";
 import { Toaster } from "@/components/ui/sonner";
 import { getPreferredLocale } from "@/i18n/runtime";
 import { PWAHandler } from "@/components/shared/PWAHandler";
+import { useAuthStore } from "@/store/useAuthStore";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -78,11 +79,29 @@ function RootComponent() {
             <Outlet />
             <Toaster position="top-center" richColors />
             <PWAHandler />
+            
+            {/* Auth Debugger - Temporary */}
+            <div className="fixed bottom-4 left-4 z-[9999] p-2 bg-black/80 text-white text-[10px] rounded-lg border border-white/20 font-mono">
+              <div>URL: {import.meta.env.VITE_SUPABASE_URL ? "✅" : "❌"}</div>
+              <div>KEY: {import.meta.env.VITE_SUPABASE_ANON_KEY ? "✅" : "❌"}</div>
+              <AuthStatusDisplay />
+            </div>
           </Providers>
         </NextIntlClientProvider>
         <Scripts />
       </body>
     </html>
+  );
+}
+
+function AuthStatusDisplay() {
+  const { user, isLoading } = useAuthStore();
+  return (
+    <>
+      <div>USER: {user ? "Logged In" : "Not Logged In"}</div>
+      <div>LOADING: {isLoading ? "YES" : "NO"}</div>
+      {user && <div className="text-green-400">ID: {user.id.slice(0, 8)}...</div>}
+    </>
   );
 }
 
