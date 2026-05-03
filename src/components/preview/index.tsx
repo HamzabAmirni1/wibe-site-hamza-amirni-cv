@@ -179,22 +179,31 @@ const PreviewPanel = React.forwardRef<HTMLDivElement, PreviewPanelProps>(
       return { contentPerPagePx: effectiveContentPerPage, pageBreakCount };
     }, [contentHeight, pagePadding, isScaled, cannotFit, scaleFactor]);
 
-    const [mobileScale, setMobileScale] = useState(0.5);
+    const [mobileScale, setMobileScale] = useState<number | undefined>(undefined);
+    const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
       const updateScale = () => {
-        if (window.innerWidth < 768) {
-          // A4 width is 210mm ≈ 794px. We want to fit this into window.innerWidth - padding
-          const padding = 32; // px
-          const targetWidth = window.innerWidth - padding;
-          const newScale = targetWidth / 794;
-          setMobileScale(newScale);
+        if (typeof window !== 'undefined') {
+          const mobile = window.innerWidth < 768;
+          setIsMobile(mobile);
+          if (mobile) {
+            // A4 width is 210mm ≈ 794px. We want to fit this into window.innerWidth - padding
+            const padding = 32; // px
+            const targetWidth = window.innerWidth - padding;
+            const newScale = targetWidth / 794;
+            setMobileScale(newScale);
+          } else {
+            setMobileScale(undefined);
+          }
         }
       };
 
       updateScale();
-      window.addEventListener("resize", updateScale);
-      return () => window.removeEventListener("resize", updateScale);
+      if (typeof window !== 'undefined') {
+        window.addEventListener("resize", updateScale);
+        return () => window.removeEventListener("resize", updateScale);
+      }
     }, []);
 
     if (!activeResume) return null;
@@ -226,7 +235,7 @@ const PreviewPanel = React.forwardRef<HTMLDivElement, PreviewPanelProps>(
         <div 
           className="py-4 min-h-screen flex justify-center origin-top md:scale-90 md:origin-top-left"
           style={{
-            transform: window.innerWidth < 768 ? `scale(${mobileScale})` : undefined
+            transform: isMobile && mobileScale !== undefined ? `scale(${mobileScale})` : undefined
           }}
         >
           <div
