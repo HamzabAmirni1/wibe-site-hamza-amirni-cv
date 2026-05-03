@@ -29,6 +29,7 @@ const PageBreakLine = React.memo(
     contentPerPagePx: number;
     pagePadding: number;
   }) => {
+    const t = useTranslations("previewDock");
     // 预览中 #resume-preview 有 padding-top，内容从 pagePadding 位置开始
     // 每页能容纳 contentPerPagePx 高度的内容（与 Puppeteer PDF margin 一致）
     // 第 N 页结束位置 = pagePadding + N * contentPerPagePx
