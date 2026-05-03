@@ -4,7 +4,7 @@ export const Route = createFileRoute("/app/dashboard/")({
   beforeLoad: ({ location }) => {
     throw redirect({ 
       to: "/app/dashboard/resumes",
-      hash: location.hash || window.location.hash.replace('#', '')
+      hash: location.hash || (typeof window !== 'undefined' ? window.location.hash.replace('#', '') : '')
     });
   }
 });

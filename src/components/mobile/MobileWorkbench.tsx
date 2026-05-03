@@ -8,6 +8,7 @@ import { EditPanel } from "@/components/editor/EditPanel";
 import { SidePanel } from "@/components/editor/SidePanel";
 import PreviewPanel from "@/components/preview";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+import { useTranslations } from "@/i18n/compat/client";
 
 type TabType = "content" | "style" | "preview";
 

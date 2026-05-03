@@ -7,7 +7,7 @@ export const Route = createFileRoute("/")({
     throw redirect({ 
       to: "/$locale", 
       params: { locale },
-      hash: location.hash || window.location.hash.replace('#', '')
+      hash: location.hash || (typeof window !== 'undefined' ? window.location.hash.replace('#', '') : '')
     });
   }
 });
