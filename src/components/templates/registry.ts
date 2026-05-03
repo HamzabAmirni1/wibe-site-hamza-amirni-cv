@@ -10,6 +10,8 @@ import { minimalistConfig } from "./minimalist/config";
 import { elegantConfig } from "./elegant/config";
 import { creativeConfig } from "./creative/config";
 import { editorialConfig } from "./editorial/config";
+import { executiveConfig } from "./executive/config";
+import { impactConfig } from "./impact/config";
 
 // Import components
 import ClassicTemplate from "./classic";
@@ -20,6 +22,8 @@ import MinimalistTemplate from "./minimalist";
 import ElegantTemplate from "./elegant";
 import CreativeTemplate from "./creative";
 import EditorialTemplate from "./editorial";
+import ExecutiveTemplate from "./executive";
+import ImpactTemplate from "./impact";
 
 export interface TemplateRegistryEntry {
   config: ResumeTemplate;
@@ -40,6 +44,8 @@ export const TEMPLATE_REGISTRY: TemplateRegistryEntry[] = [
   { config: elegantConfig, Component: ElegantTemplate },
   { config: creativeConfig, Component: CreativeTemplate },
   { config: editorialConfig, Component: EditorialTemplate },
+  { config: executiveConfig, Component: ExecutiveTemplate },
+  { config: impactConfig, Component: ImpactTemplate },
 ];
 
 /** All template configs — drop-in replacement for the old DEFAULT_TEMPLATES */

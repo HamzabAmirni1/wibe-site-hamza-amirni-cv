@@ -258,6 +258,14 @@
       "editorial": {
         "name": "Editorial",
         "description": "Luxurious blend of bold serif and refined sans-serif typography"
+      },
+      "executive": {
+        "name": "Executive",
+        "description": "Sleek professional design with a refined layout and sophisticated typography"
+      },
+      "impact": {
+        "name": "Impact",
+        "description": "Bold and modern design with strong visual hierarchy and clear focus"
       }
     }
   },

@@ -121,6 +121,52 @@
         "pdfSuccess": "PDF importé avec succès",
         "pdfError": "Échec de l'importation du PDF. Veuillez vérifier le contenu du PDF ou la configuration Gemini"
       }
+    },
+    "templates": {
+      "title": "Modèles",
+      "useTemplate": "Utiliser ce modèle",
+      "preview": "Aperçu",
+      "switchTemplate": "Changer de modèle",
+      "classic": {
+        "name": "Classique",
+        "description": "Mise en page traditionnelle et minimaliste, adaptée à la plupart des candidatures"
+      },
+      "modern": {
+        "name": "Deux Colonnes",
+        "description": "Mise en page classique à deux colonnes, mettant en avant les caractéristiques personnelles"
+      },
+      "leftRight": {
+        "name": "Fond de titre de section",
+        "description": "Titres de sections distinctifs avec couleur de fond"
+      },
+      "timeline": {
+        "name": "Chronologique",
+        "description": "Style frise chronologique, mettant l'accent sur l'ordre temporel des expériences"
+      },
+      "minimalist": {
+        "name": "Minimaliste",
+        "description": "Grande quantité d'espaces blancs, style de mise en page propre et pur"
+      },
+      "elegant": {
+        "name": "Élégant",
+        "description": "Design à une colonne avec titre centré, avec une touche d'élégance"
+      },
+      "creative": {
+        "name": "Créatif",
+        "description": "Design à contraste visuel, vibrant et personnalisé"
+      },
+      "editorial": {
+        "name": "Éditorial",
+        "description": "Mélange luxueux de typographie serif grasse et sans-serif raffinée"
+      },
+      "executive": {
+        "name": "Exécutif",
+        "description": "Design professionnel haut de gamme avec une mise en page épurée et une typographie élégante"
+      },
+      "impact": {
+        "name": "Impact",
+        "description": "Design moderne et audacieux avec une hiérarchie visuelle forte et un focus clair"
+      }
     }
   },
   "pdfExport": {
