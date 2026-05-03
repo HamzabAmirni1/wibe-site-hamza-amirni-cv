@@ -28,7 +28,11 @@ interface EditorHeaderProps {
   isMobile?: boolean;
 }
 
+import { useAuthStore } from "@/store/useAuthStore";
+import { Cloud } from "lucide-react";
+
 export function EditorHeader({ isMobile }: EditorHeaderProps) {
+  const { user } = useAuthStore();
   const { activeResume, setActiveSection, updateResumeTitle } =
     useResumeStore();
   const { menuSections = [], activeSection } = activeResume || {};
@@ -62,6 +66,10 @@ export function EditorHeader({ isMobile }: EditorHeaderProps) {
   const [backupPath, setBackupPath] = useState<string>("");
 
   useEffect(() => {
+    if (user) {
+      setBackupConfigured(true);
+      return;
+    }
     const checkBackup = async () => {
       try {
         const handle = await getFileHandle("syncDirectory");
@@ -73,7 +81,7 @@ export function EditorHeader({ isMobile }: EditorHeaderProps) {
       }
     };
     checkBackup();
-  }, []);
+  }, [user]);
 
   return (
     <motion.header
@@ -95,7 +103,34 @@ export function EditorHeader({ isMobile }: EditorHeaderProps) {
           </motion.div>
 
           {/* Backup Status Badge */}
-          {backupConfigured !== null && (
+          {user ? (
+            <TooltipProvider delayDuration={100}>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <motion.div
+                    className={`
+                      hidden md:flex items-center gap-1.5 px-2.5 py-1 rounded-full cursor-default
+                      text-[11px] font-medium tracking-wide
+                      border transition-all duration-300
+                      border-emerald-200 bg-emerald-50/60 text-emerald-600 dark:border-emerald-800 dark:bg-emerald-950/30 dark:text-emerald-400
+                    `}
+                    initial={{ opacity: 0, x: -8 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.3, duration: 0.3 }}
+                  >
+                    <Cloud className="w-3 h-3" />
+                    <span>Cloud Sync</span>
+                  </motion.div>
+                </TooltipTrigger>
+                <TooltipContent side="bottom" sideOffset={8} className="max-w-[240px]">
+                  <div className="flex flex-col gap-0.5">
+                    <span className="text-xs font-medium">Cloud Backup Active</span>
+                    <span className="text-[10px] text-muted-foreground truncate">Your resume is securely saved to your account</span>
+                  </div>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+          ) : backupConfigured !== null && (
             <TooltipProvider delayDuration={100}>
               <Tooltip>
                 <TooltipTrigger asChild>
