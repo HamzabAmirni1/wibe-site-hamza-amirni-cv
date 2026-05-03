@@ -667,6 +667,24 @@
       "close": "Fermer",
       "cancel": "Annuler",
       "removePhoto": "Supprimer la photo"
+    },
+    "auth": {
+      "signIn": "Se connecter",
+      "signUp": "S'inscrire",
+      "login": "Connexion",
+      "accountAccess": "Accès au compte",
+      "accessDescription": "Connectez-vous ou créez un compte pour enregistrer vos CV.",
+      "email": "E-mail",
+      "password": "Mot de passe",
+      "createAccount": "Créer un compte",
+      "signOut": "Se déconnecter",
+      "signOutSuccess": "Déconnexion réussie",
+      "signInSuccess": "Connexion réussie !",
+      "confirmEmail": "Vérifiez vos e-mails pour le lien de confirmation !",
+      "dashboard": "Tableau de bord",
+      "settings": "Paramètres",
+      "orContinueWith": "Ou continuer avec",
+      "account": "Compte"
     }
   },
   "templates": {

@@ -724,7 +724,9 @@
       "signInSuccess": "تم تسجيل الدخول بنجاح!",
       "confirmEmail": "تحقق من بريدك الإلكتروني لتأكيد الحساب!",
       "dashboard": "لوحة التحكم",
-      "settings": "الإعدادات"
+      "settings": "الإعدادات",
+      "orContinueWith": "أو المتابعة باستخدام",
+      "account": "الحساب"
     }
   },
   "templates": {

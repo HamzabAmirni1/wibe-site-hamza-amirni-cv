@@ -813,7 +813,9 @@
     "signInSuccess": "Signed in successfully!",
     "confirmEmail": "Check your email for the confirmation link!",
     "dashboard": "Dashboard",
-    "settings": "Settings"
+    "settings": "Settings",
+    "orContinueWith": "Or continue with",
+    "account": "Account"
   },
   "templates": {
     "switchTemplate": "Switch Template"
