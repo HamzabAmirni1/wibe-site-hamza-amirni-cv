@@ -799,6 +799,22 @@
       "removePhoto": "Remove Photo"
     }
   },
+  "auth": {
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "login": "Login",
+    "accountAccess": "Account Access",
+    "accessDescription": "Login or create a new account to save your resumes.",
+    "email": "Email",
+    "password": "Password",
+    "createAccount": "Create Account",
+    "signOut": "Sign Out",
+    "signOutSuccess": "Signed out successfully",
+    "signInSuccess": "Signed in successfully!",
+    "confirmEmail": "Check your email for the confirmation link!",
+    "dashboard": "Dashboard",
+    "settings": "Settings"
+  },
   "templates": {
     "switchTemplate": "Switch Template"
   },

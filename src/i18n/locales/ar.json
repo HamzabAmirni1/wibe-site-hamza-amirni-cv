@@ -709,6 +709,22 @@
       "close": "إغلاق",
       "cancel": "إلغاء",
       "removePhoto": "إزالة الصورة"
+    },
+    "auth": {
+      "signIn": "تسجيل الدخول",
+      "signUp": "إنشاء حساب",
+      "login": "دخول",
+      "accountAccess": "الوصول إلى الحساب",
+      "accessDescription": "سجل الدخول أو أنشئ حساباً جديداً لحفظ سيرك الذاتية.",
+      "email": "البريد الإلكتروني",
+      "password": "كلمة المرور",
+      "createAccount": "إنشاء الحساب",
+      "signOut": "تسجيل الخروج",
+      "signOutSuccess": "تم تسجيل الخروج بنجاح",
+      "signInSuccess": "تم تسجيل الدخول بنجاح!",
+      "confirmEmail": "تحقق من بريدك الإلكتروني لتأكيد الحساب!",
+      "dashboard": "لوحة التحكم",
+      "settings": "الإعدادات"
     }
   },
   "templates": {

@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button";
 import ThemeToggle from "@/components/shared/ThemeToggle";
 import LanguageSwitch from "@/components/shared/LanguageSwitch";
 import { GitHubStars } from "@/components/shared/GitHubStars";
+import { useAuthStore } from "@/store/useAuthStore";
+import { AuthDialog } from "@/components/shared/AuthDialog";
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -60,15 +62,26 @@ export default function MobileMenu({
           )}
 
           <div className="flex flex-col gap-3 px-4">
-            <Button
-              size="default"
-              className="bg-primary hover:opacity-90 text-white w-full py-6"
-              asChild
-            >
-              <Link href="/app/dashboard" onClick={onClose}>
-                {buttonText}
-              </Link>
-            </Button>
+            {useAuthStore().user ? (
+              <Button
+                size="default"
+                className="bg-primary hover:opacity-90 text-white w-full py-6 rounded-xl"
+                asChild
+              >
+                <Link href="/app/dashboard" onClick={onClose}>
+                  {buttonText}
+                </Link>
+              </Button>
+            ) : (
+              <AuthDialog>
+                <Button
+                  size="default"
+                  className="bg-primary hover:opacity-90 text-white w-full py-6 rounded-xl"
+                >
+                  Sign In
+                </Button>
+              </AuthDialog>
+            )}
           </div>
         </nav>
       </div>

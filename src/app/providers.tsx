@@ -3,10 +3,12 @@ import { ThemeProvider } from "next-themes";
 import { HeroUIProvider } from "@heroui/react";
 import { useLocale } from "@/i18n/compat/client";
 import { useResumeDirectorySync } from "@/hooks/useResumeDirectorySync";
+import { useSupabaseAuth } from "@/hooks/useSupabaseAuth";
 
 export function Providers({ children }: { children: React.ReactNode }) {
   const locale = useLocale();
   useResumeDirectorySync();
+  useSupabaseAuth();
 
   return (
     <HeroUIProvider locale={locale}>

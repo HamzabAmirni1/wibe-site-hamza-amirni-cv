@@ -62,7 +62,7 @@ function RootComponent() {
   }, [locale]);
 
   return (
-    <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"} suppressHydrationWarning>
+    <html lang={locale} dir="ltr" suppressHydrationWarning>
       <head>
         <HeadContent />
         <link rel="icon" href="/favicon.ico?v=2" />

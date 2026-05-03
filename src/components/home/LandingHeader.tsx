@@ -9,9 +9,9 @@ import Logo from "@/components/shared/Logo";
 import ThemeToggle from "@/components/shared/ThemeToggle";
 import LanguageSwitch from "@/components/shared/LanguageSwitch";
 import { GitHubStars } from "@/components/shared/GitHubStars";
+import { UserMenu } from "@/components/shared/UserMenu";
 import ScrollHeader from "./client/ScrollHeader";
 import MobileMenu from "./client/MobileMenu";
-import GoDashboard from "./GoDashboard";
 
 export default function LandingHeader() {
   const t = useTranslations("home");
@@ -44,13 +44,7 @@ export default function LandingHeader() {
               </ThemeToggle>
               <GitHubStars />
 
-              <GoDashboard>
-                <Button
-                  className="rounded-xl px-6 h-10 font-medium transition-all hover:opacity-90 active:scale-95"
-                >
-                  {t("header.startButton")}
-                </Button>
-              </GoDashboard>
+              <UserMenu />
             </div>
 
             <button
