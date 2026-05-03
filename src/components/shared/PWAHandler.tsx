@@ -10,7 +10,17 @@ export const PWAHandler: React.FC = () => {
   const t = useTranslations("common.pwa");
 
   useEffect(() => {
-    // Register Service Worker
+    // Force unregister existing Service Workers to fix ERR_FAILED
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.getRegistrations().then((registrations) => {
+        for (const registration of registrations) {
+          registration.unregister();
+          console.log("SW unregistered to fix ERR_FAILED");
+        }
+      });
+    }
+
+    /* Commented out to fix ERR_FAILED
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {
         navigator.serviceWorker
@@ -23,6 +33,7 @@ export const PWAHandler: React.FC = () => {
           });
       });
     }
+    */
 
     // Handle beforeinstallprompt
     const handleBeforeInstallPrompt = (e: any) => {
