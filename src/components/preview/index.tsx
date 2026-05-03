@@ -197,21 +197,45 @@ const PreviewPanel = React.forwardRef<HTMLDivElement, PreviewPanelProps>(
     };
 
     return (
+    const [mobileScale, setMobileScale] = useState(0.5);
+
+    useEffect(() => {
+      const updateScale = () => {
+        if (window.innerWidth < 768) {
+          // A4 width is 210mm ≈ 794px. We want to fit this into window.innerWidth - padding
+          const padding = 32; // px
+          const targetWidth = window.innerWidth - padding;
+          const newScale = targetWidth / 794;
+          setMobileScale(newScale);
+        }
+      };
+
+      updateScale();
+      window.addEventListener("resize", updateScale);
+      return () => window.removeEventListener("resize", updateScale);
+    }, []);
+
+    return (
       <div
         ref={previewRef}
-        className="relative w-full h-full  bg-gray-100"
+        className="relative w-full h-full bg-gray-100 overflow-x-hidden"
         style={{
           fontFamily: selectedFontFamily,
         }}
       >
-        <div className="py-4 ml-4 px-4 min-h-screen flex justify-center scale-[58%] origin-top md:scale-90 md:origin-top-left">
+        <div 
+          className="py-4 min-h-screen flex justify-center origin-top md:scale-90 md:origin-top-left"
+          style={{
+            transform: window.innerWidth < 768 ? `scale(${mobileScale})` : undefined
+          }}
+        >
           <div
             ref={startRef}
             className={cn(
               "w-[210mm] min-w-[210mm] min-h-[297mm]",
               "bg-white",
               "shadow-lg",
-              "relative mx-auto"
+              "relative"
             )}
           >
             <div
