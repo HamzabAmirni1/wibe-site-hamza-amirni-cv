@@ -123,16 +123,42 @@ const Field = ({
   );
 
   if (type === "date") {
+    const dateValue = value ? new Date(value.includes('/') ? value.replace(/\//g, '-') : value) : undefined;
+    
     return (
       <div className="block">
         {renderLabel()}
-        <UnifiedDateInput
-          value={value}
-          onChange={onChange}
-          placeholder={placeholder}
-          isRequired={required}
-          className={className}
-        />
+        <Popover>
+          <PopoverTrigger asChild>
+            <Button
+              variant={"outline"}
+              className={cn(
+                "w-full justify-start text-left font-normal h-9 rounded-md border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",
+                !value && "text-muted-foreground",
+                className
+              )}
+            >
+              <CalendarIcon className="mr-2 h-4 w-4" />
+              {value ? value : <span>{placeholder || t("field.selectDate")}</span>}
+            </Button>
+          </PopoverTrigger>
+          <PopoverContent className="w-auto p-0" align="start">
+            <Calendar
+              mode="single"
+              selected={dateValue}
+              onSelect={(date) => {
+                if (date) {
+                  const y = date.getFullYear();
+                  const m = String(date.getMonth() + 1).padStart(2, '0');
+                  onChange(`${y}/${m}`);
+                } else {
+                  onChange("");
+                }
+              }}
+              initialFocus
+            />
+          </PopoverContent>
+        </Popover>
       </div>
     );
   }
