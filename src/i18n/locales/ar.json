@@ -243,6 +243,9 @@
       "configured": "النسخ الاحتياطي مكون",
       "notConfigured": "النسخ الاحتياطي غير مكون",
       "clickToConfigure": "انقر للتكوين"
+    },
+    "pageBreak": {
+      "end": "نهاية الصفحة {pageNumber}"
     }
   },
   "workbench": {
@@ -520,6 +523,22 @@
       "width": "العرض (%)",
       "delete": "حذف",
       "empty": "لا توجد صور بعد. يرجى رفع أو لصق الصور."
+    },
+    "mobile": {
+      "basicInfo": "المعلومات الأساسية",
+      "tabs": {
+        "content": "المحتوى",
+        "style": "المظهر",
+        "preview": "المعاينة"
+      }
+    },
+    "layoutControls": {
+      "expandSide": "توسيع اللوحة الجانبية",
+      "collapseSide": "طوي اللوحة الجانبية",
+      "expandEdit": "توسيع لوحة التحرير",
+      "collapseEdit": "طوي لوحة التحرير",
+      "expandPreview": "توسيع لوحة المعاينة",
+      "collapsePreview": "طوي لوحة المعاينة"
     }
   },
   "field": {

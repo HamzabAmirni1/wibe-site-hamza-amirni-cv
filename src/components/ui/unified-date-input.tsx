@@ -32,7 +32,7 @@ export function UnifiedDateInput({
     }
   };
 
-  const isPresent = value === "至今" || value === "Present" || value.includes("Present") || value.includes("至今");
+  const isPresent = value === "Present" || value.includes("Present") || value === "至今" || value.includes("至今");
 
   const [selectedDate, setSelectedDate] = useState<CalendarDate | null>(() =>
     parseValue(value)

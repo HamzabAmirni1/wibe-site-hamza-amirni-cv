@@ -339,6 +339,9 @@
       "configured": "Backup Configured",
       "notConfigured": "Backup Not Configured",
       "clickToConfigure": "Click to configure"
+    },
+    "pageBreak": {
+      "end": "Page {pageNumber} End"
     }
   },
   "workbench": {
@@ -608,6 +611,22 @@
       "width": "Width (%)",
       "delete": "Delete",
       "empty": "No images yet. Please upload or paste images."
+    },
+    "mobile": {
+      "basicInfo": "Basic Info",
+      "tabs": {
+        "content": "Content",
+        "style": "Style",
+        "preview": "Preview"
+      }
+    },
+    "layoutControls": {
+      "expandSide": "Expand Side Panel",
+      "collapseSide": "Collapse Side Panel",
+      "expandEdit": "Expand Edit Panel",
+      "collapseEdit": "Collapse Edit Panel",
+      "expandPreview": "Expand Preview Panel",
+      "collapsePreview": "Collapse Preview Panel"
     }
   },
   "field": {

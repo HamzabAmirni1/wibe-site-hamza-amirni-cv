@@ -42,7 +42,7 @@ const PageBreakLine = React.memo(
         <div className="relative w-full">
           <div className="absolute w-full border-t-2 border-dashed border-red-400" />
           <div className="absolute right-0 -top-6 text-xs text-red-500">
-            第{pageNumber}页结束
+            {t("pageBreak.end", { pageNumber })}
           </div>
         </div>
       </div>
@@ -178,25 +178,6 @@ const PreviewPanel = React.forwardRef<HTMLDivElement, PreviewPanelProps>(
       return { contentPerPagePx: effectiveContentPerPage, pageBreakCount };
     }, [contentHeight, pagePadding, isScaled, cannotFit, scaleFactor]);
 
-    if (!activeResume) return null;
-
-    const handlePreviewClickCapture = (
-      event: React.MouseEvent<HTMLDivElement>
-    ) => {
-      const target = event.target as HTMLElement | null;
-      const sectionElement = target?.closest<HTMLElement>(
-        "[data-resume-section-id]"
-      );
-      const sectionId = sectionElement?.dataset.resumeSectionId;
-
-      if (!sectionId || sectionId === activeResume.activeSection) {
-        return;
-      }
-
-      setActiveSection(sectionId);
-    };
-
-    return (
     const [mobileScale, setMobileScale] = useState(0.5);
 
     useEffect(() => {
@@ -214,6 +195,24 @@ const PreviewPanel = React.forwardRef<HTMLDivElement, PreviewPanelProps>(
       window.addEventListener("resize", updateScale);
       return () => window.removeEventListener("resize", updateScale);
     }, []);
+
+    if (!activeResume) return null;
+
+    const handlePreviewClickCapture = (
+      event: React.MouseEvent<HTMLDivElement>
+    ) => {
+      const target = event.target as HTMLElement | null;
+      const sectionElement = target?.closest<HTMLElement>(
+        "[data-resume-section-id]"
+      );
+      const sectionId = sectionElement?.dataset.resumeSectionId;
+
+      if (!sectionId || sectionId === activeResume.activeSection) {
+        return;
+      }
+
+      setActiveSection(sectionId);
+    };
 
     return (
       <div

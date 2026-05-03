@@ -61,7 +61,7 @@ export function UnifiedDateRangeInput({
     () => parseRange(value)
   );
 
-  const isPresent = value.includes("至今") || value.includes("Present");
+  const isPresent = value.includes("至今") || value.includes("Present") || value.includes("Now");
 
   const updateValue = (
     newStart: CalendarDate | null,

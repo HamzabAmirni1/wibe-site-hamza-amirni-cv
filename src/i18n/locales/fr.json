@@ -201,6 +201,9 @@
       "configured": "Sauvegarde configurée",
       "notConfigured": "Sauvegarde non configurée",
       "clickToConfigure": "Cliquez pour configurer"
+    },
+    "pageBreak": {
+      "end": "Fin de la page {pageNumber}"
     }
   },
   "workbench": {
@@ -478,6 +481,22 @@
       "width": "Largeur (%)",
       "delete": "Supprimer",
       "empty": "Pas encore d'images."
+    },
+    "mobile": {
+      "basicInfo": "Infos de base",
+      "tabs": {
+        "content": "Contenu",
+        "style": "Style",
+        "preview": "Aperçu"
+      }
+    },
+    "layoutControls": {
+      "expandSide": "Développer le panneau latéral",
+      "collapseSide": "Réduire le panneau latéral",
+      "expandEdit": "Développer le panneau d'édition",
+      "collapseEdit": "Réduire le panneau d'édition",
+      "expandPreview": "Développer le panneau d'aperçu",
+      "collapsePreview": "Réduire le panneau d'aperçu"
     }
   },
   "field": {
