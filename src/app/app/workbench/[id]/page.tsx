@@ -376,7 +376,7 @@ export default function Home() {
       </div>
 
       {/* 移动端布局 */}
-      <div className="md:hidden h-[calc(100vh-64px)]">
+      <div className="md:hidden h-dvh pt-20 overflow-hidden">
         <MobileWorkbench />
       </div>
     </main>

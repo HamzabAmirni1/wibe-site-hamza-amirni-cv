@@ -43,9 +43,9 @@ export function MobileWorkbench() {
   );
 
   return (
-    <div className="flex flex-col h-[calc(100vh-64px)] bg-background">
+    <div className="flex flex-col h-full bg-background overflow-hidden relative">
       {/* 主要内容区域 */}
-      <div className="flex-1 overflow-hidden relative">
+      <div className="flex-1 overflow-hidden relative pb-20">
         <AnimatePresence mode="wait">
           {activeTab === "content" && (
             <motion.div
@@ -140,7 +140,7 @@ export function MobileWorkbench() {
       </div>
 
       {/* 底部导航栏 */}
-      <div className="h-16 border-t bg-background flex items-center justify-around relative shadow-[0_-1px_3px_rgba(0,0,0,0.05)] z-50">
+      <div className="fixed bottom-0 left-0 right-0 h-16 border-t bg-background flex items-center justify-around shadow-[0_-1px_10px_rgba(0,0,0,0.08)] z-[60]">
         {renderNavItem("content", <FileText className="w-5 h-5" />, t("tabs.content"))}
         {renderNavItem("style", <Palette className="w-5 h-5" />, t("tabs.style"))}
         {renderNavItem("preview", <Eye className="w-5 h-5" />, t("tabs.preview"))}
