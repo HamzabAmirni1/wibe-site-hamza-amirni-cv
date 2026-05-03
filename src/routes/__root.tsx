@@ -8,7 +8,8 @@ import {
 import appCss from "../app/globals.css?url";
 import appFontCss from "../app/font.css?url";
 import { NextIntlClientProvider } from "@/i18n/compat/client";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { supabase } from "@/lib/supabase";
 import arMessages from "@/i18n/locales/ar.json";
 import frMessages from "@/i18n/locales/fr.json";
 import enMessages from "@/i18n/locales/en.json";
