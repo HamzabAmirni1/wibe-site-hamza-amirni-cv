@@ -17,7 +17,7 @@ import { useTranslations } from "@/i18n/compat/client"
 
 export function UserMenu() {
   const t = useTranslations("auth")
-  const { user, signOut } = useAuthStore()
+  const { user, signOut, isLoading } = useAuthStore()
   const navigate = useNavigate()
 
   const handleSignOut = async () => {
@@ -29,6 +29,12 @@ export function UserMenu() {
       toast.success(t("signOutSuccess"))
       navigate({ to: "/" })
     }
+  }
+
+  if (isLoading) {
+    return (
+      <div className="h-10 w-24 animate-pulse rounded-xl bg-accent/20" />
+    )
   }
 
   if (!user) {

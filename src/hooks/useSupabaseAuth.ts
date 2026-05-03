@@ -15,12 +15,15 @@ export function useSupabaseAuth() {
       if (session) {
         useResumeStore.getState().fetchRemoteResumes()
       }
+    }).catch(() => {
+      setIsLoading(false)
     })
 
     // Listen for auth changes
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, session) => {
+    } = supabase.auth.onAuthStateChange((event, session) => {
+      console.log('Auth event:', event, !!session)
       setSession(session)
       setIsLoading(false)
       if (session) {
