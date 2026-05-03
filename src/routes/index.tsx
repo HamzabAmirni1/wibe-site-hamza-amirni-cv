@@ -4,6 +4,10 @@ import { getPreferredLocale } from "@/i18n/runtime";
 export const Route = createFileRoute("/")({
   beforeLoad: ({ location }) => {
     const locale = getPreferredLocale(location.pathname);
-    throw redirect({ to: "/$locale", params: { locale } });
+    throw redirect({ 
+      to: "/$locale", 
+      params: { locale },
+      hash: location.hash || window.location.hash.replace('#', '')
+    });
   }
 });
