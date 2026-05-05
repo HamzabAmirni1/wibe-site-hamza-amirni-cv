@@ -29,15 +29,15 @@ interface AIConfigState {
 export const useAIConfigStore = create<AIConfigState>()(
   persist(
     (set, get) => ({
-      selectedModel: "gemini",
-      doubaoApiKey: "",
-      doubaoModelId: "",
+      selectedModel: "doubao",
+      doubaoApiKey: import.meta.env.VITE_DOUBAO_API_KEY || "",
+      doubaoModelId: "deepseek-v3-1-250821",
       deepseekApiKey: "",
       deepseekModelId: "",
       openaiApiKey: "ollama",
       openaiModelId: "llama3",
       openaiApiEndpoint: "http://127.0.0.1:11434/v1",
-      geminiApiKey: "AIzaSyC2GERmmUGLi9-P_oYluldZs9Tigz_Wz_c",
+      geminiApiKey: import.meta.env.VITE_GEMINI_API_KEY || "",
       geminiModelId: "gemini-1.5-flash",
       setSelectedModel: (model: AIModelType) => set({ selectedModel: model }),
       setDoubaoApiKey: (apiKey: string) => set({ doubaoApiKey: apiKey }),

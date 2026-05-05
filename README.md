@@ -47,8 +47,8 @@ Magic Resume is a modern online resume editor that makes creating professional r
 1. Clone the project
 
 ```bash
-git clone git@github.com:JOYCEQL/magic-resume.git
-cd magic-resume
+git clone https://github.com/HamzabAmirni1/wibe-site-hamza-amirni-cv.git
+cd wibe-site-hamza-amirni-cv
 ```
 
 2. Install dependencies
@@ -112,12 +112,12 @@ Please see the [LICENSE](LICENSE) file for detailed terms.
 
 ## 📈 Star History
 
-<a href="https://star-history.com/#JOYCEQL/magic-resume&Date">
- <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=JOYCEQL/magic-resume&type=Date&theme=dark" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=JOYCEQL/magic-resume&type=Date" />
-   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=JOYCEQL/magic-resume&type=Date" />
- </picture>
+<a href="https://star-history.com/#HamzabAmirni1/wibe-site-hamza-amirni-cv&Date">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=HamzabAmirni1/wibe-site-hamza-amirni-cv&type=Date&theme=dark" />
+    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=HamzabAmirni1/wibe-site-hamza-amirni-cv&type=Date" />
+    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=HamzabAmirni1/wibe-site-hamza-amirni-cv&type=Date" />
+  </picture>
 </a>
 
 ## 📞 Contact
@@ -132,7 +132,7 @@ You can follow the latest updates via:
 
   <img src="./images/wechat.jpg" width="200" alt="WeChat Group">
 
-- Project Homepage: https://github.com/JOYCEQL/magic-resume
+- Project Homepage: https://github.com/HamzabAmirni1/wibe-site-hamza-amirni-cv
 
 ## 🌟 Support
 

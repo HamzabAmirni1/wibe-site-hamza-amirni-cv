@@ -50,11 +50,11 @@ export const AI_MODEL_CONFIGS: Record<AIModelType, AIModelConfig> = {
     validate: (context: AIValidationContext) => !!(context.openaiApiKey && context.openaiModelId && context.openaiApiEndpoint),
   },
   gemini: {
-    url: () => "https://generativelanguage.googleapis.com/v1beta",
+    url: () => "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions",
     requiresModelId: true,
     headers: (apiKey: string) => ({
       "Content-Type": "application/json",
-      "x-goog-api-key": apiKey,
+      Authorization: `Bearer ${apiKey}`,
     }),
     validate: (context: AIValidationContext) => !!(context.geminiApiKey && context.geminiModelId),
   },

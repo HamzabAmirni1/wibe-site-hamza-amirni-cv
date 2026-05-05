@@ -21,7 +21,7 @@ const parseUpstreamError = (raw: string, fallback: string) => {
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { apiKey, model, content, modelType, apiEndpoint } = body;
+    const { apiKey, model, content, modelType, apiEndpoint, customInstructions } = body;
 
     const modelConfig = AI_MODEL_CONFIGS[modelType as AIModelType];
     if (!modelConfig) {
@@ -45,7 +45,7 @@ export async function POST(req: Request) {
               4. Use active voice
               5. Maintain the integrity of original information
               6. Preserve the input format
-
+              ${customInstructions ? `\n              User Custom Instructions (MUST FOLLOW):\n              ${customInstructions}\n` : ""}
               Output Constraints (MUST FOLLOW):
               1. ONLY output the "polished text content" itself.
               2. DO NOT output any introduction, explanation, summary, or additional suggestions.
